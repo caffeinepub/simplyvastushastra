@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const navLinks = [
+const anchorLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#courses", label: "Courses" },
-  { href: "#blog", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];
-
-const scrollTo = (id: string) => {
-  document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-};
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isOnHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -24,9 +24,25 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    scrollTo(href);
+  // Close menu on route change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally re-run on pathname change
+  useEffect(() => {
     setMenuOpen(false);
+  }, [location.pathname]);
+
+  const handleAnchorClick = (href: string) => {
+    setMenuOpen(false);
+    if (isOnHomePage) {
+      // Smooth scroll on homepage
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to homepage + anchor
+      navigate(`/${href}`);
+      // After navigation, scroll will be handled by the hash
+      setTimeout(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   };
 
   return (
@@ -42,8 +58,8 @@ export default function Header() {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="flex items-center gap-2 group"
           aria-label="SimplyVastuShastra Home"
         >
@@ -61,31 +77,46 @@ export default function Header() {
               Shastra
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map(({ href, label }) => (
+          {anchorLinks.map(({ href, label }) => (
             <li key={href}>
-              <a
-                href={href}
+              <button
+                type="button"
+                onClick={() => handleAnchorClick(href)}
                 className="text-brown-medium hover:text-gold font-medium text-sm transition-colors duration-200 relative group"
               >
                 {label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-200 group-hover:w-full" />
-              </a>
+              </button>
             </li>
           ))}
+          <li>
+            <Link
+              to="/blogs"
+              className={`text-sm font-medium transition-colors duration-200 relative group ${
+                location.pathname.startsWith("/blogs")
+                  ? "text-gold"
+                  : "text-brown-medium hover:text-gold"
+              }`}
+            >
+              Blog
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-200 group-hover:w-full" />
+            </Link>
+          </li>
         </ul>
 
         {/* CTA + Hamburger */}
         <div className="flex items-center gap-4">
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={() => handleAnchorClick("#contact")}
             className="hidden md:inline-flex btn-gold px-5 py-2 rounded-full text-sm shadow-sm hover:shadow-gold"
           >
             Book Consultation
-          </a>
+          </button>
 
           <button
             type="button"
@@ -109,24 +140,37 @@ export default function Header() {
       >
         <div className="bg-cream/98 border-t border-gold/20 px-4 py-4">
           <ul className="flex flex-col gap-1">
-            {navLinks.map(({ href, label }) => (
+            {anchorLinks.map(({ href, label }) => (
               <li key={href}>
-                <a
-                  href={href}
-                  onClick={() => handleNavClick(href)}
-                  className="block px-4 py-3 text-brown-medium hover:text-gold hover:bg-gold/5 rounded-lg font-medium transition-colors duration-200"
+                <button
+                  type="button"
+                  onClick={() => handleAnchorClick(href)}
+                  className="w-full text-left block px-4 py-3 text-brown-medium hover:text-gold hover:bg-gold/5 rounded-lg font-medium transition-colors duration-200"
                 >
                   {label}
-                </a>
+                </button>
               </li>
             ))}
+            <li>
+              <Link
+                to="/blogs"
+                className={`block px-4 py-3 rounded-lg font-medium transition-colors duration-200 ${
+                  location.pathname.startsWith("/blogs")
+                    ? "text-gold bg-gold/5"
+                    : "text-brown-medium hover:text-gold hover:bg-gold/5"
+                }`}
+              >
+                Blog
+              </Link>
+            </li>
             <li className="pt-2">
-              <a
-                href="#contact"
-                className="block text-center btn-gold px-5 py-3 rounded-full text-sm font-semibold"
+              <button
+                type="button"
+                onClick={() => handleAnchorClick("#contact")}
+                className="w-full text-center btn-gold px-5 py-3 rounded-full text-sm font-semibold"
               >
                 Book Consultation
-              </a>
+              </button>
             </li>
           </ul>
         </div>

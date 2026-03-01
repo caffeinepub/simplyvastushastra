@@ -227,7 +227,7 @@ export default function Courses() {
                   }
                   className={`py-3 rounded-full text-sm font-bold w-full transition-all duration-300 ${
                     course.badge
-                      ? "btn-gold shadow-sm hover:shadow-gold"
+                      ? "btn-gold-shimmer shadow-sm hover:shadow-gold"
                       : "btn-gold-outline"
                   }`}
                   aria-label={`Enroll in ${course.title}`}
@@ -260,7 +260,7 @@ export default function Courses() {
                 .querySelector("#contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="btn-gold px-10 py-4 rounded-full text-base font-bold shadow-md hover:shadow-gold transition-all duration-300"
+            className="btn-gold-shimmer px-10 py-4 rounded-full text-base font-bold shadow-md hover:shadow-gold transition-all duration-300"
           >
             Enroll Now — Limited Seats
           </button>

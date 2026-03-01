@@ -165,7 +165,57 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="bg-cream rounded-2xl p-8">
+            <div className="bg-cream rounded-2xl p-8 relative overflow-hidden">
+              {/* Decorative mandala watermark */}
+              <div
+                className="absolute top-0 right-0 w-32 h-32 pointer-events-none select-none opacity-5"
+                style={{ color: "#C9A84C" }}
+                aria-hidden="true"
+              >
+                <svg
+                  viewBox="0 0 100 100"
+                  className="w-full h-full"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="30"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="15"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  />
+                  {[0, 45, 90, 135].map((a) => (
+                    <line
+                      key={a}
+                      x1="50"
+                      y1="5"
+                      x2="50"
+                      y2="95"
+                      stroke="currentColor"
+                      strokeWidth="0.5"
+                      transform={`rotate(${a} 50 50)`}
+                    />
+                  ))}
+                </svg>
+              </div>
               {submitted ? (
                 <div className="text-center py-12">
                   <div

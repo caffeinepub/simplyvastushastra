@@ -195,6 +195,63 @@ export default function Services() {
             );
           })}
         </motion.div>
+
+        {/* How it works */}
+        <motion.div
+          className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          {[
+            {
+              step: "01",
+              title: "Book a Session",
+              desc: "Fill the contact form or WhatsApp us to schedule your consultation.",
+            },
+            {
+              step: "02",
+              title: "Share Your Space",
+              desc: "Send floor plans and photos. We analyse every zone with precision.",
+            },
+            {
+              step: "03",
+              title: "Transform Your Life",
+              desc: "Receive your personalised Vastu report and start implementing changes.",
+            },
+          ].map((item, i) => (
+            <div
+              key={item.step}
+              className="relative flex items-start gap-4 p-5 rounded-2xl"
+              style={{
+                background: "rgba(255,255,255,0.7)",
+                border: "1px solid rgba(201,168,76,0.2)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <div
+                className="text-[2.5rem] font-bold font-serif leading-none select-none flex-shrink-0"
+                style={{ color: "rgba(201,168,76,0.18)" }}
+                aria-hidden="true"
+              >
+                {item.step}
+              </div>
+              <div>
+                <h4 className="font-serif font-bold text-brown-text text-base mb-1">
+                  {item.title}
+                </h4>
+                <p className="text-brown-medium text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+              {i < 2 && (
+                <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-gold/40 text-xl font-thin z-10">
+                  →
+                </div>
+              )}
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

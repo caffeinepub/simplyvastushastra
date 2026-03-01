@@ -1,14 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
-
-export type BlogPost = {
-  category: string;
-  title: string;
-  excerpt: string;
-  readTime: string;
-  content: React.ReactNode;
-};
+import type { BlogPost } from "../data/blogPosts";
 
 type BlogModalProps = {
   post: BlogPost | null;
@@ -64,6 +57,25 @@ export default function BlogModal({ post, onClose }: BlogModalProps) {
               onClick={(e) => e.stopPropagation()}
               onKeyDown={(e) => e.stopPropagation()}
             >
+              {/* Cover image */}
+              {post.coverImage && (
+                <div className="h-40 md:h-52 relative overflow-hidden flex-shrink-0">
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(44,24,16,0.6) 100%)",
+                    }}
+                    aria-hidden="true"
+                  />
+                </div>
+              )}
+
               {/* Header bar */}
               <div
                 className="flex items-start justify-between gap-4 px-6 pt-6 pb-4 flex-shrink-0"
@@ -118,7 +130,7 @@ export default function BlogModal({ post, onClose }: BlogModalProps) {
                 }}
               >
                 <p className="font-accent italic text-brown-medium text-sm">
-                  — Charru Gupta, SimplyVastuShastra
+                  — {post.author}, SimplyVastuShastra
                 </p>
                 <button
                   type="button"

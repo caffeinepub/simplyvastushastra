@@ -57,7 +57,10 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="section-padding bg-white relative overflow-hidden"
+      className="section-padding relative overflow-hidden"
+      style={{
+        background: "linear-gradient(160deg, #FEFAF0 0%, #FFF8E7 100%)",
+      }}
     >
       {/* Decorative bg */}
       <div
@@ -104,7 +107,7 @@ export default function WhyChooseUs() {
                   aria-hidden="true"
                 />
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-gold"
                   style={{ background: "rgba(201,168,76,0.1)" }}
                 >
                   <Icon className="text-gold" size={20} aria-hidden="true" />

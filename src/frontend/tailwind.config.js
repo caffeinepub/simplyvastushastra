@@ -17,7 +17,7 @@ export default {
     extend: {
       fontFamily: {
         serif: ["'Playfair Display'", "Georgia", "serif"],
-        sans: ["'Inter'", "system-ui", "sans-serif"],
+        sans: ["'General Sans'", "system-ui", "sans-serif"],
         accent: ["'Cormorant Garamond'", "Georgia", "serif"],
       },
       colors: {
@@ -86,6 +86,11 @@ export default {
           dark: "#3D2B1F",
           text: "#2C1810",
         },
+        terracotta: {
+          DEFAULT: "#C46B2D",
+          light: "#D4854A",
+          dark: "#A0531E",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -110,11 +115,27 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-12px) rotate(3deg)" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(0.95)", opacity: "0.4" },
+          "70%": { transform: "scale(1.15)", opacity: "0" },
+          "100%": { transform: "scale(0.95)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-slow": "pulse 2s ease-in-out infinite",
+        "marquee": "marquee 25s linear infinite",
+        "float-slow": "float-slow 6s ease-in-out infinite",
+        "pulse-ring": "pulse-ring 2.5s ease-out infinite",
       },
     },
   },

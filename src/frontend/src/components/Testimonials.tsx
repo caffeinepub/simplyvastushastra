@@ -63,7 +63,8 @@ export default function Testimonials() {
       id="testimonials"
       className="section-padding relative overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #F5F0E8 0%, #FFF8E7 100%)",
+        background:
+          "linear-gradient(160deg, #FFF8E7 0%, #F0E8D4 40%, #EDE0C4 100%)",
       }}
     >
       {/* Decorative circles */}
@@ -109,8 +110,8 @@ export default function Testimonials() {
               variants={itemVariants}
               className="card-elevated rounded-2xl p-6 flex flex-col"
             >
-              {/* Top row: stars + service badge */}
-              <div className="flex items-center justify-between mb-4">
+              {/* Top row: stars + service badge + verified */}
+              <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
                 <div className="flex gap-0.5" aria-label="5 out of 5 stars">
                   {["s1", "s2", "s3", "s4", "s5"].map((k) => (
                     <FaStar
@@ -121,18 +122,23 @@ export default function Testimonials() {
                     />
                   ))}
                 </div>
-                <span className="text-[10px] text-gold-deep bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-full font-semibold tracking-wide uppercase">
-                  {t.service}
-                </span>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-[10px] text-gold-deep bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-full font-semibold tracking-wide uppercase">
+                    {t.service}
+                  </span>
+                  <span className="text-[10px] text-green-600 bg-green-50 border border-green-200 px-2 py-0.5 rounded-full font-semibold">
+                    ✓ Verified
+                  </span>
+                </div>
               </div>
 
               {/* Large decorative open-quote */}
               <div
                 className="font-serif select-none leading-none mb-1"
                 style={{
-                  fontSize: "3.5rem",
+                  fontSize: "5rem",
                   color: "#C9A84C",
-                  opacity: 0.25,
+                  opacity: 0.18,
                   lineHeight: "0.7",
                   fontFamily: "'Playfair Display', Georgia, serif",
                 }}
@@ -152,10 +158,11 @@ export default function Testimonials() {
                 style={{ borderTop: "1px solid rgba(201,168,76,0.15)" }}
               >
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-[11px] font-bold text-white flex-shrink-0 shadow-sm"
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-bold text-white flex-shrink-0"
                   style={{
                     background:
-                      "linear-gradient(135deg, #C9A84C 0%, #B8860B 100%)",
+                      "linear-gradient(135deg, #C9A84C 0%, #D4AF37 50%, #B8860B 100%)",
+                    boxShadow: "0 0 0 2px rgba(201,168,76,0.3)",
                   }}
                   aria-hidden="true"
                 >
