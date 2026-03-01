@@ -1,5 +1,5 @@
+import { Link } from "@tanstack/react-router";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const anchorLinks = [
   { href: "#home", label: "Home" },
@@ -99,16 +99,45 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <footer style={{ background: "#2C1810" }} aria-label="Site footer">
+      <footer style={{ background: "#1A0A05" }} aria-label="Site footer">
         {/* Gold top border */}
         <div
           className="h-px w-full"
           style={{
             background:
-              "linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent)",
+              "linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent)",
           }}
           aria-hidden="true"
         />
+
+        {/* As Featured In / Trusted By strip */}
+        <div
+          className="border-b"
+          style={{ borderColor: "rgba(201,168,76,0.1)" }}
+        >
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-6">
+            <p
+              className="text-center text-xs font-bold tracking-[0.2em] uppercase mb-5"
+              style={{ color: "rgba(201,168,76,0.5)" }}
+            >
+              As Seen In &amp; Trusted By
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              {[
+                "Economic Times",
+                "Times of India",
+                "Hindustan Times",
+                "Navbharat Times",
+                "India Today",
+                "Dainik Bhaskar",
+              ].map((pub) => (
+                <span key={pub} className="press-badge">
+                  {pub}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
           {/* Top section */}

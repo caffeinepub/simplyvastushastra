@@ -16,9 +16,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["'Playfair Display'", "Georgia", "serif"],
-        sans: ["'General Sans'", "system-ui", "sans-serif"],
-        accent: ["'Cormorant Garamond'", "Georgia", "serif"],
+        serif: ["'Palatino Linotype'", "'Book Antiqua'", "Palatino", "Georgia", "serif"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "system-ui", "sans-serif"],
+        accent: ["'Palatino Linotype'", "'Book Antiqua'", "Palatino", "'Hoefler Text'", "Georgia", "serif"],
+        display: ["'Palatino Linotype'", "'Book Antiqua'", "Palatino", "Georgia", "serif"],
       },
       colors: {
         border: "oklch(var(--border))",
@@ -128,6 +129,24 @@ export default {
           "70%": { transform: "scale(1.15)", opacity: "0" },
           "100%": { transform: "scale(0.95)", opacity: "0" },
         },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(201,168,76,0.3), 0 0 40px rgba(201,168,76,0.1)" },
+          "50%": { boxShadow: "0 0 40px rgba(201,168,76,0.6), 0 0 80px rgba(201,168,76,0.25)" },
+        },
+        "float-particle": {
+          "0%, 100%": { transform: "translateY(0) translateX(0) scale(1)", opacity: "0.3" },
+          "25%": { transform: "translateY(-30px) translateX(10px) scale(1.1)", opacity: "0.6" },
+          "50%": { transform: "translateY(-15px) translateX(-8px) scale(0.95)", opacity: "0.4" },
+          "75%": { transform: "translateY(-25px) translateX(5px) scale(1.05)", opacity: "0.5" },
+        },
+        "draw-line": {
+          "from": { width: "0" },
+          "to": { width: "100%" },
+        },
+        "urgency-pulse": {
+          "0%, 100%": { opacity: "0.7" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -136,6 +155,10 @@ export default {
         "marquee": "marquee 25s linear infinite",
         "float-slow": "float-slow 6s ease-in-out infinite",
         "pulse-ring": "pulse-ring 2.5s ease-out infinite",
+        "glow-pulse": "glow-pulse 2.5s ease-in-out infinite",
+        "float-particle": "float-particle 6s ease-in-out infinite",
+        "draw-line": "draw-line 1.5s cubic-bezier(0.4,0,0.2,1) forwards",
+        "urgency-pulse": "urgency-pulse 2s ease-in-out infinite",
       },
     },
   },

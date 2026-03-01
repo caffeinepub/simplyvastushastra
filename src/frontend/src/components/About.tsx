@@ -21,7 +21,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="section-padding bg-white relative overflow-hidden"
+      className="section-padding relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(160deg, #FFF8E7 0%, #F5F0E8 60%, #EDE0C4 100%)",
+      }}
     >
       {/* Subtle corner mandala */}
       <div
@@ -158,6 +162,54 @@ export default function About() {
               in Vastu Shastra
             </h2>
 
+            {/* Pull-quote — signature design element */}
+            <div
+              className="relative my-6 px-6 py-5 rounded-2xl overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(201,168,76,0.03) 100%)",
+                border: "1px solid rgba(201,168,76,0.22)",
+              }}
+            >
+              {/* Large decorative quote mark */}
+              <div
+                className="absolute -top-2 -left-1 select-none"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: "6rem",
+                  color: "#C9A84C",
+                  opacity: 0.15,
+                  lineHeight: 1,
+                }}
+                aria-hidden="true"
+              >
+                &#8220;
+              </div>
+              <div
+                className="absolute -bottom-4 -right-1 select-none"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: "6rem",
+                  color: "#C9A84C",
+                  opacity: 0.15,
+                  lineHeight: 1,
+                }}
+                aria-hidden="true"
+              >
+                &#8221;
+              </div>
+              <blockquote className="relative z-10 font-accent text-lg sm:text-xl italic text-brown-text leading-relaxed text-center">
+                My mission is to bring harmony, health, and prosperity to every
+                home through the timeless science of Vastu.
+              </blockquote>
+              <p
+                className="relative z-10 text-center text-sm font-semibold mt-3"
+                style={{ color: "#C9A84C" }}
+              >
+                — Charru Gupta, Founder
+              </p>
+            </div>
+
             <div className="space-y-4 text-brown-medium leading-relaxed mb-6">
               <p>
                 Charru Gupta is the founder of{" "}
@@ -176,17 +228,10 @@ export default function About() {
                 colors, directions, and placements. No breaking walls, no
                 expensive renovations.
               </p>
-              <p>
-                She has trained{" "}
-                <strong className="text-brown-text">3000+ students</strong>{" "}
-                through certified courses, turning Vastu enthusiasts into
-                confident practitioners. Her mission is to make ancient Vastu
-                wisdom accessible, logical, and life-changing for everyone.
-              </p>
             </div>
 
             {/* Credentials */}
-            <ul className="flex flex-wrap gap-3 mb-6" aria-label="Credentials">
+            <ul className="flex flex-wrap gap-3 mb-8" aria-label="Credentials">
               {credentials.map((c) => (
                 <li
                   key={c}
@@ -197,19 +242,9 @@ export default function About() {
               ))}
             </ul>
 
-            {/* Signature */}
-            <p className="font-accent text-xl italic text-brown-medium mb-8">
-              "My mission is to bring harmony, health, and prosperity to every
-              home through the timeless science of Vastu."
-              <br />
-              <strong className="text-brown-text not-italic font-semibold">
-                — Charru Gupta, Founder
-              </strong>
-            </p>
-
             <a
               href="#contact"
-              className="inline-flex btn-gold px-7 py-3.5 rounded-full text-sm font-semibold shadow-sm hover:shadow-gold transition-all duration-300"
+              className="inline-flex btn-gold-magnetic px-7 py-3.5 rounded-full text-sm font-semibold shadow-sm hover:shadow-gold transition-all duration-300"
             >
               Know More About Charru →
             </a>

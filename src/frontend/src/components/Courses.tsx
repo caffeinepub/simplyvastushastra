@@ -25,7 +25,8 @@ const features = [
 const courses = [
   {
     title: "Beginner Vastu Course",
-    price: "₹X,XXX",
+    price: "Enquire Now",
+    priceNote: "4 Weeks · Self-paced",
     duration: "4 Weeks",
     badge: null,
     features: [
@@ -37,7 +38,8 @@ const courses = [
   },
   {
     title: "Advanced Vastu Practitioner",
-    price: "₹XX,XXX",
+    price: "Enquire Now",
+    priceNote: "8 Weeks · Live + Recorded",
     duration: "8 Weeks",
     badge: null,
     features: [
@@ -48,8 +50,9 @@ const courses = [
     ],
   },
   {
-    title: "Professional Vastu Consultant Course",
-    price: "₹XX,XXX",
+    title: "Professional Vastu Consultant",
+    price: "Enquire Now",
+    priceNote: "12 Weeks · Complete Program",
     duration: "12 Weeks",
     badge: "Most Popular",
     features: [
@@ -149,94 +152,138 @@ export default function Courses() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {courses.map((course) => (
-            <motion.article
-              key={course.title}
-              variants={itemVariants}
-              className="card-elevated rounded-2xl overflow-hidden flex flex-col relative"
-              style={
-                course.badge
-                  ? {
-                      boxShadow:
-                        "0 4px 16px rgba(201,168,76,0.2), 0 1px 4px rgba(44,24,16,0.06), inset 0 1px 0 rgba(255,248,231,0.8)",
-                      border: "1.5px solid rgba(201,168,76,0.5)",
-                    }
-                  : {}
-              }
-            >
-              {/* Gold accent top */}
-              <div
-                className="h-1.5 w-full"
+          {courses.map((course, courseIdx) => {
+            const isFeatured = !!course.badge;
+            const gradients = [
+              "linear-gradient(160deg, #FFF8E7 0%, #F5F0E0 100%)",
+              "linear-gradient(160deg, #2C1810 0%, #3D2B1F 100%)",
+              "linear-gradient(160deg, #FFF8E7 0%, #F0E8D4 100%)",
+            ];
+            const isDark = courseIdx === 1;
+            return (
+              <motion.article
+                key={course.title}
+                variants={itemVariants}
+                className="rounded-2xl overflow-hidden flex flex-col relative"
                 style={{
-                  background:
-                    "linear-gradient(90deg, #C9A84C, #D4AF37, #B8860B)",
+                  background: gradients[courseIdx],
+                  border: isFeatured
+                    ? "2px solid rgba(201,168,76,0.7)"
+                    : isDark
+                      ? "1px solid rgba(201,168,76,0.3)"
+                      : "1px solid rgba(201,168,76,0.25)",
+                  boxShadow: isFeatured
+                    ? "0 8px 32px rgba(201,168,76,0.3), 0 2px 8px rgba(44,24,16,0.1)"
+                    : "0 2px 12px rgba(44,24,16,0.08)",
                 }}
-                aria-hidden="true"
-              />
+              >
+                {/* Gradient header band */}
+                <div
+                  className="h-2 w-full"
+                  style={{
+                    background: isFeatured
+                      ? "linear-gradient(90deg, #B8860B, #D4AF37, #F0D080, #D4AF37, #B8860B)"
+                      : isDark
+                        ? "linear-gradient(90deg, #C9A84C, #D4AF37)"
+                        : "linear-gradient(90deg, #C9A84C55, #D4AF3788)",
+                  }}
+                  aria-hidden="true"
+                />
 
-              {/* Popular badge */}
-              {course.badge && (
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="flex items-center gap-1 btn-gold px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-                    <FaStar size={10} aria-hidden="true" />
-                    {course.badge}
-                  </span>
-                </div>
-              )}
-
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-serif text-xl font-bold text-brown-text mb-2">
-                  {course.title}
-                </h3>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-bold text-gold-dark font-serif">
-                    {course.price}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="text-xs text-brown-light bg-beige px-2 py-0.5 rounded-full border border-gold/20">
-                    Duration: {course.duration}
-                  </span>
-                </div>
-
-                <ul
-                  className="space-y-2 flex-1 mb-6"
-                  aria-label={`${course.title} features`}
-                >
-                  {course.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-2 text-brown-medium text-sm"
+                {/* Popular badge */}
+                {course.badge && (
+                  <div className="absolute top-5 right-4 z-10">
+                    <span
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold shadow-md"
+                      style={{
+                        background: "linear-gradient(135deg, #C9A84C, #F0D080)",
+                        color: "#2C1810",
+                        boxShadow: "0 2px 12px rgba(201,168,76,0.5)",
+                      }}
                     >
-                      <FaCheck
-                        className="text-gold mt-0.5 flex-shrink-0"
-                        size={12}
-                        aria-hidden="true"
-                      />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+                      <FaStar size={9} aria-hidden="true" />
+                      {course.badge}
+                    </span>
+                  </div>
+                )}
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    document
-                      .querySelector("#contact")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className={`py-3 rounded-full text-sm font-bold w-full transition-all duration-300 ${
-                    course.badge
-                      ? "btn-gold-shimmer shadow-sm hover:shadow-gold"
-                      : "btn-gold-outline"
-                  }`}
-                  aria-label={`Enroll in ${course.title}`}
-                >
-                  Enroll Now
-                </button>
-              </div>
-            </motion.article>
-          ))}
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  <h3
+                    className={`font-serif text-xl font-bold mb-3 ${isDark ? "text-cream" : "text-brown-text"}`}
+                  >
+                    {course.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span
+                      className={`text-xl font-bold font-serif tracking-tight ${isDark ? "text-gold" : "text-gold-dark"}`}
+                    >
+                      {course.price}
+                    </span>
+                    <span
+                      className={`text-xs px-2.5 py-1 rounded-full border font-medium ${
+                        isDark
+                          ? "text-cream/70 bg-white/5 border-gold/20"
+                          : "text-brown-light bg-beige border-gold/20"
+                      }`}
+                    >
+                      ↗
+                    </span>
+                  </div>
+                  <div className="mb-6">
+                    <span
+                      className={`text-xs font-medium ${isDark ? "text-cream/55" : "text-brown-light/70"}`}
+                    >
+                      ⏱ {course.priceNote}
+                    </span>
+                  </div>
+
+                  <ul
+                    className="space-y-2.5 flex-1 mb-6"
+                    aria-label={`${course.title} features`}
+                  >
+                    {course.features.map((f) => (
+                      <li
+                        key={f}
+                        className={`flex items-start gap-2.5 text-sm ${isDark ? "text-cream/75" : "text-brown-medium"}`}
+                      >
+                        <span
+                          className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                          style={{ background: "rgba(201,168,76,0.15)" }}
+                          aria-hidden="true"
+                        >
+                          <FaCheck
+                            className="text-gold"
+                            size={9}
+                            aria-hidden="true"
+                          />
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      document
+                        .querySelector("#contact")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
+                    className={`py-3.5 rounded-full text-sm font-bold w-full transition-all duration-300 min-h-[48px] ${
+                      isFeatured
+                        ? "btn-gold-shimmer shadow-md hover:shadow-gold hover:-translate-y-0.5"
+                        : isDark
+                          ? "btn-gold-outline"
+                          : "btn-gold-outline"
+                    }`}
+                    aria-label={`Enroll in ${course.title}`}
+                  >
+                    Enroll Now →
+                  </button>
+                </div>
+              </motion.article>
+            );
+          })}
         </motion.div>
 
         {/* Big CTA */}

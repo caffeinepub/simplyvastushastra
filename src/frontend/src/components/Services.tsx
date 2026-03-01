@@ -20,6 +20,7 @@ const services = [
       "Improved health & wealth",
       "Positive energy flow",
     ],
+    accentColor: "#C9A84C",
   },
   {
     icon: FaBuilding,
@@ -27,6 +28,7 @@ const services = [
     problem: "Struggling with business stagnation?",
     help: "Transform your workplace into a powerhouse of productivity and success by harmonizing the energy of your commercial space.",
     benefits: ["Business growth", "Team productivity", "Financial prosperity"],
+    accentColor: "#D4AF37",
   },
   {
     icon: FaIndustry,
@@ -34,6 +36,7 @@ const services = [
     problem: "Facing operational challenges?",
     help: "Optimize your industrial setup with Vastu principles to ensure smooth workflows, worker safety, and increased output.",
     benefits: ["Smooth operations", "Worker safety", "Increased output"],
+    accentColor: "#B8860B",
   },
   {
     icon: FaLaptop,
@@ -45,6 +48,7 @@ const services = [
       "Detailed floor plan analysis",
       "Video call session",
     ],
+    accentColor: "#C9A84C",
   },
   {
     icon: FaHeart,
@@ -56,6 +60,7 @@ const services = [
       "Wealth attraction",
       "Relationship harmony",
     ],
+    accentColor: "#D4AF37",
   },
 ];
 
@@ -121,76 +126,138 @@ export default function Services() {
               <motion.article
                 key={service.title}
                 variants={cardVariants}
-                className={`card-elevated rounded-2xl p-6 flex flex-col group ${
+                className={`rounded-2xl p-6 flex flex-col group relative overflow-hidden transition-all duration-300 ${
                   isLast && services.length % 3 === 2 ? "lg:col-start-2" : ""
                 }`}
+                style={{
+                  background:
+                    "linear-gradient(160deg, #ffffff 0%, #fdfaf4 100%)",
+                  border: "1px solid rgba(201,168,76,0.2)",
+                  boxShadow:
+                    "0 2px 8px rgba(44,24,16,0.05), 0 1px 3px rgba(44,24,16,0.03)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.transform =
+                    "translateY(-5px)";
+                  (e.currentTarget as HTMLElement).style.boxShadow =
+                    "0 16px 40px rgba(201,168,76,0.2), 0 4px 12px rgba(44,24,16,0.06)";
+                  (e.currentTarget as HTMLElement).style.borderColor =
+                    "rgba(201,168,76,0.45)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.transform =
+                    "translateY(0)";
+                  (e.currentTarget as HTMLElement).style.boxShadow =
+                    "0 2px 8px rgba(44,24,16,0.05), 0 1px 3px rgba(44,24,16,0.03)";
+                  (e.currentTarget as HTMLElement).style.borderColor =
+                    "rgba(201,168,76,0.2)";
+                }}
               >
-                {/* Icon */}
-                <div className="mb-5">
+                {/* Left accent bar — editorial style signature detail */}
+                <div
+                  className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full"
+                  style={{
+                    background: `linear-gradient(to bottom, ${service.accentColor}99, ${service.accentColor}, ${service.accentColor}66)`,
+                    opacity: 0.7,
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* Icon + service number row */}
+                <div className="flex items-start justify-between mb-5 mt-1 pl-3">
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.06) 100%)",
-                      border: "1px solid rgba(201,168,76,0.3)",
+                        "linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(201,168,76,0.07) 100%)",
+                      border: "1px solid rgba(201,168,76,0.28)",
+                      boxShadow: "0 2px 8px rgba(201,168,76,0.12)",
                     }}
                   >
                     <Icon
                       className="text-gold"
-                      style={{ fontSize: "1.25rem" }}
+                      style={{ fontSize: "1.1rem" }}
                       aria-hidden="true"
                     />
                   </div>
+                  <span
+                    className="text-[11px] font-bold tracking-[0.14em] uppercase"
+                    style={{
+                      color: "rgba(201,168,76,0.45)",
+                      fontVariantNumeric: "tabular-nums",
+                    }}
+                    aria-hidden="true"
+                  >
+                    0{i + 1}
+                  </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-serif text-[1.1rem] font-bold text-brown-text mb-2 group-hover:text-gold-dark transition-colors leading-snug">
-                  {service.title}
-                </h3>
-                <p className="font-accent italic text-brown-medium text-sm mb-3 leading-relaxed">
-                  {service.problem}
-                </p>
-                <p className="text-brown-medium text-sm leading-relaxed mb-4">
-                  {service.help}
-                </p>
+                <div className="pl-3 flex flex-col flex-1">
+                  <h3 className="font-serif text-[1.05rem] font-bold text-brown-text mb-1.5 group-hover:text-gold-dark transition-colors leading-snug">
+                    {service.title}
+                  </h3>
+                  <p
+                    className="font-accent italic text-brown-medium text-sm mb-3 leading-relaxed"
+                    style={{ fontStyle: "italic" }}
+                  >
+                    {service.problem}
+                  </p>
+                  <p className="text-brown-medium text-sm leading-relaxed mb-4">
+                    {service.help}
+                  </p>
 
-                {/* Benefits */}
-                <ul
-                  className="space-y-2 mb-5 flex-1"
-                  aria-label={`${service.title} benefits`}
-                >
-                  {service.benefits.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-center gap-2.5 text-sm text-brown-medium"
-                    >
-                      <span
-                        className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ background: "rgba(201,168,76,0.12)" }}
-                        aria-hidden="true"
+                  {/* Benefits */}
+                  <ul
+                    className="space-y-1.5 mb-5 flex-1"
+                    aria-label={`${service.title} benefits`}
+                  >
+                    {service.benefits.map((b) => (
+                      <li
+                        key={b}
+                        className="flex items-center gap-2 text-sm text-brown-medium"
                       >
-                        <span className="text-gold text-[8px] font-bold">
-                          ✦
-                        </span>
-                      </span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          className="flex-shrink-0"
+                          aria-hidden="true"
+                        >
+                          <circle
+                            cx="7"
+                            cy="7"
+                            r="6"
+                            fill="rgba(201,168,76,0.12)"
+                          />
+                          <path
+                            d="M4.5 7 L6.2 8.7 L9.5 5.3"
+                            stroke="#C9A84C"
+                            strokeWidth="1.3"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* CTA */}
-                <button
-                  type="button"
-                  onClick={() =>
-                    document
-                      .querySelector("#contact")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="btn-gold-outline px-5 py-2.5 rounded-full text-sm font-semibold w-full text-center mt-auto"
-                  aria-label={`Book ${service.title} consultation`}
-                >
-                  Book Now
-                </button>
+                  {/* CTA */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      document
+                        .querySelector("#contact")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
+                    className="btn-gold-outline px-5 py-2.5 rounded-full text-sm font-semibold w-full text-center mt-auto"
+                    aria-label={`Book ${service.title} consultation`}
+                  >
+                    Book Now →
+                  </button>
+                </div>
               </motion.article>
             );
           })}
@@ -198,59 +265,95 @@ export default function Services() {
 
         {/* How it works */}
         <motion.div
-          className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="mt-16"
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {[
-            {
-              step: "01",
-              title: "Book a Session",
-              desc: "Fill the contact form or WhatsApp us to schedule your consultation.",
-            },
-            {
-              step: "02",
-              title: "Share Your Space",
-              desc: "Send floor plans and photos. We analyse every zone with precision.",
-            },
-            {
-              step: "03",
-              title: "Transform Your Life",
-              desc: "Receive your personalised Vastu report and start implementing changes.",
-            },
-          ].map((item, i) => (
-            <div
-              key={item.step}
-              className="relative flex items-start gap-4 p-5 rounded-2xl"
+          <div className="text-center mb-8">
+            <span
+              className="inline-block text-xs font-bold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full"
               style={{
-                background: "rgba(255,255,255,0.7)",
+                color: "#C9A84C",
+                background: "rgba(201,168,76,0.08)",
                 border: "1px solid rgba(201,168,76,0.2)",
-                backdropFilter: "blur(8px)",
               }}
             >
+              How It Works
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                step: "01",
+                title: "Book a Session",
+                desc: "Fill the contact form or WhatsApp us to schedule your consultation.",
+                emoji: "📅",
+              },
+              {
+                step: "02",
+                title: "Share Your Space",
+                desc: "Send floor plans and photos. We analyse every zone with precision.",
+                emoji: "🏠",
+              },
+              {
+                step: "03",
+                title: "Transform Your Life",
+                desc: "Receive your personalised Vastu report and start implementing changes.",
+                emoji: "✨",
+              },
+            ].map((item, i) => (
               <div
-                className="text-[2.5rem] font-bold font-serif leading-none select-none flex-shrink-0"
-                style={{ color: "rgba(201,168,76,0.18)" }}
-                aria-hidden="true"
+                key={item.step}
+                className="relative flex items-start gap-5 p-6 rounded-2xl group"
+                style={{
+                  background: "rgba(255,255,255,0.8)",
+                  border: "1px solid rgba(201,168,76,0.22)",
+                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 4px 16px rgba(44,24,16,0.04)",
+                }}
               >
-                {item.step}
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-brown-text text-base mb-1">
-                  {item.title}
-                </h4>
-                <p className="text-brown-medium text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-              {i < 2 && (
-                <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-gold/40 text-xl font-thin z-10">
-                  →
+                {/* Step circle */}
+                <div
+                  className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-serif font-bold text-lg"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #C9A84C 0%, #D4AF37 100%)",
+                    color: "#2C1810",
+                    boxShadow: "0 4px 12px rgba(201,168,76,0.35)",
+                  }}
+                  aria-hidden="true"
+                >
+                  {item.step}
                 </div>
-              )}
-            </div>
-          ))}
+                <div className="flex-1">
+                  <div className="text-xl mb-1" aria-hidden="true">
+                    {item.emoji}
+                  </div>
+                  <h4 className="font-serif font-bold text-brown-text text-base mb-1.5">
+                    {item.title}
+                  </h4>
+                  <p className="text-brown-medium text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+                {i < 2 && (
+                  <div
+                    className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full items-center justify-center z-10 text-sm font-bold"
+                    style={{
+                      background: "white",
+                      border: "1px solid rgba(201,168,76,0.3)",
+                      color: "#C9A84C",
+                      boxShadow: "0 2px 8px rgba(44,24,16,0.06)",
+                    }}
+                    aria-hidden="true"
+                  >
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

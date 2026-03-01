@@ -1,6 +1,6 @@
+import { Link, useParams } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useEffect, useMemo } from "react";
-import { Link, useParams } from "react-router-dom";
 import { BLOG_POSTS } from "../data/blogPosts";
 
 function injectBlogPostJsonLd(post: (typeof BLOG_POSTS)[0]) {
@@ -44,7 +44,8 @@ function injectBlogPostJsonLd(post: (typeof BLOG_POSTS)[0]) {
 }
 
 export default function BlogPostPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const params = useParams({ strict: false }) as { slug?: string };
+  const slug = params.slug;
   const post = useMemo(
     () => BLOG_POSTS.find((p) => p.slug === slug) ?? null,
     [slug],
@@ -395,12 +396,12 @@ export default function BlogPostPage() {
           <p className="font-accent italic text-cream/70 text-sm mb-6">
             Get personalised Vastu guidance for your home, office, or business.
           </p>
-          <Link
-            to="/#contact"
+          <a
+            href="/#contact"
             className="inline-flex items-center gap-2 btn-gold-shimmer px-8 py-3 rounded-full font-bold text-sm"
           >
             Book Your Consultation
-          </Link>
+          </a>
         </div>
       </main>
 
@@ -418,7 +419,8 @@ export default function BlogPostPage() {
               {relatedPosts.map((relPost) => (
                 <Link
                   key={relPost.slug}
-                  to={`/blogs/${relPost.slug}`}
+                  to="/blogs/$slug"
+                  params={{ slug: relPost.slug }}
                   className="card-elevated rounded-2xl overflow-hidden group flex flex-col"
                 >
                   <div className="h-44 relative overflow-hidden">

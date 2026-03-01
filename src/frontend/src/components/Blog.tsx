@@ -1,6 +1,6 @@
+import { Link } from "@tanstack/react-router";
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { BLOG_POSTS, type BlogPost } from "../data/blogPosts";
 import BlogModal from "./BlogModal";
 import SectionHeader from "./SectionHeader";
@@ -97,7 +97,14 @@ export default function Blog() {
               {/* Content */}
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs text-brown-light">
+                  <span
+                    className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                    style={{
+                      background: "rgba(201,168,76,0.1)",
+                      color: "#8B6914",
+                      border: "1px solid rgba(201,168,76,0.2)",
+                    }}
+                  >
                     {post.readTime}
                   </span>
                   <span className="text-xs text-brown-light/70">
@@ -115,16 +122,21 @@ export default function Blog() {
 
                 <button
                   type="button"
-                  className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors inline-flex items-center gap-1 group/link w-fit"
+                  className="inline-flex items-center gap-2 text-gold font-bold text-sm transition-all group/link w-fit px-0 py-0"
+                  style={{ letterSpacing: "0.02em" }}
                   aria-label={`Read more: ${post.title}`}
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedPost(post);
                   }}
                 >
-                  Read More
+                  Read Article
                   <span
-                    className="transition-transform duration-200 group-hover/link:translate-x-1"
+                    className="w-6 h-6 rounded-full flex items-center justify-center transition-all duration-200 group-hover/link:translate-x-1 group-hover/link:bg-gold/20"
+                    style={{
+                      background: "rgba(201,168,76,0.1)",
+                      fontSize: "0.75rem",
+                    }}
                     aria-hidden="true"
                   >
                     →

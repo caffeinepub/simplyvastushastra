@@ -8,8 +8,9 @@ const testimonials = [
     name: "Priya Sharma",
     city: "Delhi",
     initials: "PS",
-    text: "After getting Vastu consultation for my home, we experienced a remarkable improvement in family harmony and finances within just 3 months!",
+    text: "After getting Vastu consultation for my home, we experienced a remarkable improvement in family harmony and finances within just 3 months! Charru ji's approach is so practical — she gave us simple changes with no demolition and the results were beyond our expectations. I would recommend her to every family.",
     service: "Residential Vastu",
+    featured: true,
   },
   {
     name: "Rajesh Verma",
@@ -17,6 +18,7 @@ const testimonials = [
     initials: "RV",
     text: "My business was stagnating for 2 years. After implementing Vastu changes, we saw 40% growth in just 6 months. Highly recommend Charru ji!",
     service: "Commercial Vastu",
+    featured: false,
   },
   {
     name: "Sunita Patel",
@@ -24,6 +26,7 @@ const testimonials = [
     initials: "SP",
     text: "I was skeptical at first, but the practical approach and no-demolition solutions convinced me. Our home feels so much more peaceful now.",
     service: "Residential Vastu",
+    featured: false,
   },
   {
     name: "Amit Kumar",
@@ -31,6 +34,7 @@ const testimonials = [
     initials: "AK",
     text: "The online consultation was so convenient. Charru ji analyzed our floor plan and gave specific remedies. We saw positive changes in 2 weeks!",
     service: "Online Consultation",
+    featured: false,
   },
   {
     name: "Meera Joshi",
@@ -38,6 +42,7 @@ const testimonials = [
     initials: "MJ",
     text: "I enrolled in the Professional Vastu Course and it completely changed my career. Now I have my own Vastu practice with 50+ clients!",
     service: "Vastu Course",
+    featured: false,
   },
 ];
 
@@ -57,6 +62,9 @@ const itemVariants = {
 export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const featured = testimonials[0];
+  const rest = testimonials.slice(1);
 
   return (
     <section
@@ -87,7 +95,7 @@ export default function Testimonials() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div ref={ref} className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           eyebrow="Testimonials"
           headline="Real Stories, Real Transformations"
@@ -96,15 +104,158 @@ export default function Testimonials() {
           isInView={isInView}
         />
 
-        {/* Testimonial Cards */}
+        {/* Featured hero testimonial */}
         <motion.div
-          ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mb-8"
+        >
+          <article
+            className="relative rounded-3xl p-8 sm:p-10 overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(135deg, #2C1810 0%, #3D2B1F 50%, #2C1810 100%)",
+              border: "1px solid rgba(201,168,76,0.3)",
+              boxShadow:
+                "0 20px 60px rgba(44,24,16,0.2), 0 4px 16px rgba(44,24,16,0.15), inset 0 1px 0 rgba(201,168,76,0.1)",
+            }}
+          >
+            {/* Pattern overlay */}
+            <div
+              className="absolute inset-0 rounded-3xl pointer-events-none"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, rgba(201,168,76,0.035) 1px, transparent 1px)",
+                backgroundSize: "28px 28px",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Radial glow at top-right */}
+            <div
+              className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%)",
+                transform: "translate(30%, -30%)",
+              }}
+              aria-hidden="true"
+            />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center">
+              {/* Quote content */}
+              <div>
+                {/* Stars */}
+                <div className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+                  {[1, 2, 3, 4, 5].map((k) => (
+                    <FaStar
+                      key={k}
+                      className="text-gold"
+                      size={16}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+
+                {/* Big decorative quote */}
+                <div
+                  className="font-serif select-none mb-2"
+                  style={{
+                    fontSize: "7rem",
+                    color: "#C9A84C",
+                    opacity: 0.2,
+                    lineHeight: "0.7",
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                  }}
+                  aria-hidden="true"
+                >
+                  &#8220;
+                </div>
+
+                <blockquote
+                  className="font-accent italic leading-relaxed mb-6 text-lg sm:text-xl"
+                  style={{ color: "rgba(255,248,231,0.9)" }}
+                >
+                  {featured.text}
+                </blockquote>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold text-brown-text flex-shrink-0"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #C9A84C 0%, #D4AF37 50%, #B8860B 100%)",
+                      boxShadow: "0 0 0 3px rgba(201,168,76,0.3)",
+                    }}
+                    aria-hidden="true"
+                  >
+                    {featured.initials}
+                  </div>
+                  <div>
+                    <p
+                      className="font-bold text-base leading-tight"
+                      style={{ color: "#F0D080" }}
+                    >
+                      {featured.name}
+                    </p>
+                    <p
+                      className="text-sm"
+                      style={{ color: "rgba(255,248,231,0.6)" }}
+                    >
+                      {featured.city}
+                    </p>
+                  </div>
+                  <span
+                    className="ml-2 text-[10px] px-2.5 py-1 rounded-full font-bold tracking-wide uppercase"
+                    style={{
+                      color: "#C9A84C",
+                      background: "rgba(201,168,76,0.12)",
+                      border: "1px solid rgba(201,168,76,0.25)",
+                    }}
+                  >
+                    {featured.service}
+                  </span>
+                  <span
+                    className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
+                    style={{
+                      color: "#4ade80",
+                      background: "rgba(74,222,128,0.1)",
+                      border: "1px solid rgba(74,222,128,0.2)",
+                    }}
+                  >
+                    ✓ Verified
+                  </span>
+                </div>
+              </div>
+
+              {/* Decorative Om on right for desktop */}
+              <div
+                className="hidden lg:block select-none pointer-events-none"
+                aria-hidden="true"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: "8rem",
+                  color: "transparent",
+                  WebkitTextStroke: "1px rgba(201,168,76,0.12)",
+                  lineHeight: 1,
+                }}
+              >
+                ॐ
+              </div>
+            </div>
+          </article>
+        </motion.div>
+
+        {/* Remaining testimonial cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {testimonials.map((t) => (
+          {rest.map((t) => (
             <motion.article
               key={t.name}
               variants={itemVariants}
@@ -113,11 +264,11 @@ export default function Testimonials() {
               {/* Top row: stars + service badge + verified */}
               <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
                 <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-                  {["s1", "s2", "s3", "s4", "s5"].map((k) => (
+                  {[1, 2, 3, 4, 5].map((k) => (
                     <FaStar
                       key={k}
                       className="text-gold"
-                      size={13}
+                      size={11}
                       aria-hidden="true"
                     />
                   ))}
@@ -136,7 +287,7 @@ export default function Testimonials() {
               <div
                 className="font-serif select-none leading-none mb-1"
                 style={{
-                  fontSize: "5rem",
+                  fontSize: "4rem",
                   color: "#C9A84C",
                   opacity: 0.18,
                   lineHeight: "0.7",
@@ -158,7 +309,7 @@ export default function Testimonials() {
                 style={{ borderTop: "1px solid rgba(201,168,76,0.15)" }}
               >
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-bold text-white flex-shrink-0"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-[11px] font-bold text-brown-text flex-shrink-0"
                   style={{
                     background:
                       "linear-gradient(135deg, #C9A84C 0%, #D4AF37 50%, #B8860B 100%)",

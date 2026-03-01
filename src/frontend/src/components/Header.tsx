@@ -1,6 +1,6 @@
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const anchorLinks = [
   { href: "#home", label: "Home" },
@@ -37,7 +37,7 @@ export default function Header() {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     } else {
       // Navigate to homepage + anchor
-      navigate(`/${href}`);
+      navigate({ to: "/" });
       // After navigation, scroll will be handled by the hash
       setTimeout(() => {
         document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -47,11 +47,16 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-cream/95 backdrop-blur-sm shadow-[0_2px_20px_rgba(44,24,16,0.12)]"
-          : "bg-cream/80 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "shadow-[0_2px_24px_rgba(44,24,16,0.14)]" : ""
       }`}
+      style={{
+        background: scrolled
+          ? "rgba(255,248,231,0.97)"
+          : "rgba(255,248,231,0.85)",
+        backdropFilter: "blur(12px)",
+        borderBottom: scrolled ? "1px solid rgba(201,168,76,0.2)" : "none",
+      }}
     >
       <nav
         className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20"
@@ -113,7 +118,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => handleAnchorClick("#contact")}
-            className="hidden md:inline-flex btn-gold px-5 py-2 rounded-full text-sm shadow-sm hover:shadow-gold"
+            className="hidden md:inline-flex btn-gold-magnetic px-5 py-2.5 rounded-full text-sm font-bold shadow-[0_2px_12px_rgba(201,168,76,0.3)] hover:shadow-[0_4px_20px_rgba(201,168,76,0.45)] hover:-translate-y-0.5 transition-all duration-300"
           >
             Book Consultation
           </button>

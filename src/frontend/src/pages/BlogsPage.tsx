@@ -1,6 +1,6 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import { BLOG_POSTS, type BlogPost } from "../data/blogPosts";
 
 const ALL_CATEGORY = "All";
@@ -370,12 +370,12 @@ export default function BlogsPage() {
             Transform your home or office with expert Vastu guidance from Charru
             Gupta.
           </p>
-          <Link
-            to="/#contact"
+          <a
+            href="/#contact"
             className="inline-flex items-center gap-2 btn-gold-shimmer px-8 py-3.5 rounded-full text-sm font-bold shadow-lg"
           >
             Book a Consultation
-          </Link>
+          </a>
         </div>
       </section>
     </div>
@@ -390,7 +390,8 @@ function BlogCard({ post }: { post: BlogPost }) {
     >
       {/* Cover Image */}
       <Link
-        to={`/blogs/${post.slug}`}
+        to="/blogs/$slug"
+        params={{ slug: post.slug }}
         className="block h-52 relative overflow-hidden"
       >
         <img
@@ -422,7 +423,9 @@ function BlogCard({ post }: { post: BlogPost }) {
         </div>
 
         <h2 className="font-serif text-base font-bold text-brown-text mb-2 leading-snug group-hover:text-gold-dark transition-colors line-clamp-2">
-          <Link to={`/blogs/${post.slug}`}>{post.title}</Link>
+          <Link to="/blogs/$slug" params={{ slug: post.slug }}>
+            {post.title}
+          </Link>
         </h2>
 
         <p className="text-brown-medium text-sm leading-relaxed flex-1 mb-4 line-clamp-3">
@@ -434,7 +437,8 @@ function BlogCard({ post }: { post: BlogPost }) {
             By {post.author}
           </span>
           <Link
-            to={`/blogs/${post.slug}`}
+            to="/blogs/$slug"
+            params={{ slug: post.slug }}
             className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors inline-flex items-center gap-1 group/link"
             aria-label={`Read: ${post.title}`}
           >
