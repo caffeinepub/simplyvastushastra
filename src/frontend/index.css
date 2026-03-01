@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* OKLCH tokens - warm cream/gold palette */
+    --background: 0.975 0.01 85;
+    --foreground: 0.18 0.04 45;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.04 45;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.04 45;
+    --primary: 0.68 0.12 75;
+    --primary-foreground: 0.18 0.04 45;
+    --secondary: 0.94 0.02 80;
+    --secondary-foreground: 0.28 0.05 50;
+    --muted: 0.94 0.02 80;
+    --muted-foreground: 0.5 0.04 60;
+    --accent: 0.78 0.1 75;
+    --accent-foreground: 0.18 0.04 45;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.04 75;
+    --input: 0.88 0.04 75;
+    --ring: 0.68 0.12 75;
+    --chart-1: 0.68 0.12 75;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.975 0.01 85;
+    --sidebar-foreground: 0.18 0.04 45;
+    --sidebar-primary: 0.68 0.12 75;
+    --sidebar-primary-foreground: 0.18 0.04 45;
+    --sidebar-accent: 0.94 0.02 80;
+    --sidebar-accent-foreground: 0.28 0.05 50;
+    --sidebar-border: 0.88 0.04 75;
+    --sidebar-ring: 0.68 0.12 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #2C1810;
+    background-color: #FFF8E7;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-accent {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold to-gold-light hover:from-gold-dark hover:to-gold text-brown-text font-semibold transition-all duration-300;
+  }
+
+  .btn-gold-outline {
+    @apply border-2 border-gold text-gold hover:bg-gold hover:text-brown-text font-semibold transition-all duration-300;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #C9A84C, #D4AF37, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-padding {
+    @apply py-24 px-4 md:px-8 lg:px-16;
+  }
+
+  .gold-border {
+    border: 1px solid rgba(201, 168, 76, 0.35);
+  }
+
+  /* P2 Fix: layered shadow base + warm hover lift */
+  .card-elevated {
+    background: linear-gradient(160deg, #ffffff 0%, #fdfaf4 100%);
+    box-shadow:
+      0 2px 8px rgba(44, 24, 16, 0.06),
+      0 1px 3px rgba(44, 24, 16, 0.04),
+      inset 0 1px 0 rgba(255, 248, 231, 0.8);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 12px 32px rgba(201, 168, 76, 0.22),
+      0 4px 12px rgba(44, 24, 16, 0.08),
+      inset 0 1px 0 rgba(255, 248, 231, 0.9);
+    border-color: rgba(201, 168, 76, 0.55);
+  }
+
+  /* Legacy hover for backwards-compat */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,168,76,0.25)] hover:border-gold-light;
+  }
+
+  .mandala-bg {
+    background-image: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* P1 Fix: Section header ornamental divider */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0 18px;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.6));
+  }
+
+  .section-divider::after {
+    background: linear-gradient(90deg, rgba(201, 168, 76, 0.6), transparent);
+  }
+
+  /* Hero Om watermark */
+  .hero-om-watermark {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(240px, 40vw, 480px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 168, 76, 0.07);
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: -0.02em;
+  }
+}
