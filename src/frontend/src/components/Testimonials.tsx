@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { FaStar } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";

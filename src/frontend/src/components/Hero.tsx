@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import MandalaSVG from "./MandalaSVG";
 
 const trustItems = [
@@ -61,112 +61,183 @@ export default function Hero() {
 
       {/* Main content — left-aligned for editorial weight */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-16 pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="max-w-3xl">
-          {/* Eyebrow badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="mb-8"
-          >
-            <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase border border-gold/40 text-gold-deep bg-white/60 backdrop-blur-sm shadow-sm">
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-gold inline-block"
-                aria-hidden="true"
-              />
-              Ancient Wisdom · Modern Solutions
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-gold inline-block"
-                aria-hidden="true"
-              />
-            </span>
-          </motion.div>
-
-          {/* H1 — dramatic 3-line typographic stanza */}
-          <motion.h1
-            className="font-serif leading-[1.08] tracking-tight mb-8"
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          >
-            {/* Line 1 — large & dark */}
-            <span className="block text-[2.6rem] md:text-[3.8rem] lg:text-[5rem] font-bold text-brown-text">
-              Transform Your
-            </span>
-            {/* Line 2 — accent gold gradient, slightly larger */}
-            <span className="block text-[3rem] md:text-[4.4rem] lg:text-[5.8rem] font-bold text-gold-gradient leading-[1.05]">
-              Home &amp; Life
-            </span>
-            {/* Line 3 — lighter weight, slightly smaller, italic feel */}
-            <span className="block text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] font-normal text-brown-medium leading-snug mt-1">
-              with Scientific Vastu Solutions
-            </span>
-          </motion.h1>
-
-          {/* Subheadline in Cormorant Garamond — accent font for spiritual tone */}
-          <motion.p
-            className="font-accent text-xl md:text-2xl text-brown-medium leading-relaxed mb-10 italic max-w-lg"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22, ease: "easeOut" }}
-          >
-            Professional Vastu Consultation &amp; Certified Courses
-            <br />
-            <span className="not-italic font-semibold text-brown-text text-lg md:text-xl">
-              by Charru Gupta
-            </span>
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-start gap-4 mb-16"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.32, ease: "easeOut" }}
-          >
-            <button
-              type="button"
-              onClick={() => handleScrollTo("#contact")}
-              className="btn-gold px-9 py-4 rounded-full text-[15px] font-semibold shadow-[0_4px_20px_rgba(201,168,76,0.4)] hover:shadow-[0_6px_28px_rgba(201,168,76,0.55)] hover:-translate-y-0.5 transition-all duration-300"
+        <div className="flex items-center justify-between gap-8">
+          <div className="max-w-2xl flex-shrink-0">
+            {/* Eyebrow badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="mb-8"
             >
-              Book Consultation
-            </button>
-            <button
-              type="button"
-              onClick={() => handleScrollTo("#courses")}
-              className="btn-gold-outline px-9 py-4 rounded-full text-[15px] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(201,168,76,0.2)] transition-all duration-300"
-            >
-              Explore Courses
-            </button>
-          </motion.div>
+              <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase border border-gold/40 text-gold-deep bg-white/60 backdrop-blur-sm shadow-sm">
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-gold inline-block"
+                  aria-hidden="true"
+                />
+                Ancient Wisdom · Modern Solutions
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-gold inline-block"
+                  aria-hidden="true"
+                />
+              </span>
+            </motion.div>
 
-          {/* Trust indicators — horizontal strip, left-aligned */}
-          <motion.div
-            className="flex flex-wrap items-center gap-x-8 gap-y-4"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.46, ease: "easeOut" }}
-          >
-            {trustItems.map((item, i) => (
-              <div key={item.label} className="flex items-center gap-3">
-                <div>
-                  <div className="font-serif text-2xl md:text-3xl font-bold text-gold-dark leading-none">
-                    {item.value}
+            {/* H1 — dramatic 3-line typographic stanza */}
+            <motion.h1
+              className="font-serif leading-[1.08] tracking-tight mb-8"
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            >
+              {/* Line 1 — large & dark */}
+              <span className="block text-[2.6rem] md:text-[3.8rem] lg:text-[5rem] font-bold text-brown-text">
+                Transform Your
+              </span>
+              {/* Line 2 — accent gold gradient, slightly larger */}
+              <span className="block text-[3rem] md:text-[4.4rem] lg:text-[5.8rem] font-bold text-gold-gradient leading-[1.05]">
+                Home &amp; Life
+              </span>
+              {/* Line 3 — lighter weight, slightly smaller, italic feel */}
+              <span className="block text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] font-normal text-brown-medium leading-snug mt-1">
+                with Scientific Vastu Solutions
+              </span>
+            </motion.h1>
+
+            {/* Subheadline in Cormorant Garamond — accent font for spiritual tone */}
+            <motion.p
+              className="font-accent text-xl md:text-2xl text-brown-medium leading-relaxed mb-10 italic max-w-lg"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.22, ease: "easeOut" }}
+            >
+              Professional Vastu Consultation &amp; Certified Courses
+              <br />
+              <span className="not-italic font-semibold text-brown-text text-lg md:text-xl">
+                by Charru Gupta
+              </span>
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-col sm:flex-row items-start gap-4 mb-16"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.32, ease: "easeOut" }}
+            >
+              <button
+                type="button"
+                onClick={() => handleScrollTo("#contact")}
+                className="btn-gold px-9 py-4 rounded-full text-[15px] font-semibold shadow-[0_4px_20px_rgba(201,168,76,0.4)] hover:shadow-[0_6px_28px_rgba(201,168,76,0.55)] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Book Consultation
+              </button>
+              <button
+                type="button"
+                onClick={() => handleScrollTo("#courses")}
+                className="btn-gold-outline px-9 py-4 rounded-full text-[15px] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(201,168,76,0.2)] transition-all duration-300"
+              >
+                Explore Courses
+              </button>
+            </motion.div>
+
+            {/* Trust indicators — horizontal strip, left-aligned */}
+            <motion.div
+              className="flex flex-wrap items-center gap-x-8 gap-y-4"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.46, ease: "easeOut" }}
+            >
+              {trustItems.map((item, i) => (
+                <div key={item.label} className="flex items-center gap-3">
+                  <div>
+                    <div className="font-serif text-2xl md:text-3xl font-bold text-gold-dark leading-none">
+                      {item.value}
+                    </div>
+                    <div className="text-brown-medium text-xs font-medium mt-0.5 tracking-wide">
+                      {item.label}
+                    </div>
                   </div>
-                  <div className="text-brown-medium text-xs font-medium mt-0.5 tracking-wide">
-                    {item.label}
-                  </div>
+                  {i < trustItems.length - 1 && (
+                    <span
+                      className="text-gold/40 text-2xl font-thin hidden sm:block ml-2"
+                      aria-hidden="true"
+                    >
+                      |
+                    </span>
+                  )}
                 </div>
-                {i < trustItems.length - 1 && (
-                  <span
-                    className="text-gold/40 text-2xl font-thin hidden sm:block ml-2"
-                    aria-hidden="true"
-                  >
-                    |
-                  </span>
-                )}
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right side: Charru Gupta portrait — hidden on mobile */}
+          <motion.div
+            className="hidden lg:flex flex-shrink-0 flex-col items-center"
+            initial={{ opacity: 0, x: 40, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            aria-hidden="false"
+          >
+            {/* Outer glow ring */}
+            <div
+              className="relative"
+              style={{
+                filter: "drop-shadow(0 8px 40px rgba(201,168,76,0.35))",
+              }}
+            >
+              {/* Decorative outer ring */}
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, #C9A84C 0%, #F0D080 25%, #C9A84C 50%, #A07830 75%, #C9A84C 100%)",
+                  padding: "3px",
+                  borderRadius: "50%",
+                }}
+                aria-hidden="true"
+              />
+              {/* Second decorative ring slightly outside */}
+              <div
+                className="absolute -inset-3 rounded-full opacity-30"
+                style={{
+                  border: "1px dashed #C9A84C",
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute -inset-6 rounded-full opacity-15"
+                style={{
+                  border: "1px solid #C9A84C",
+                }}
+                aria-hidden="true"
+              />
+
+              {/* Photo container — circular clip */}
+              <div
+                className="relative w-72 h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden"
+                style={{
+                  border: "4px solid #C9A84C",
+                  boxShadow: "inset 0 0 20px rgba(201,168,76,0.15)",
+                }}
+              >
+                <img
+                  src="/assets/uploads/charru-gupta.png"
+                  alt="Charru Gupta — Vastu Expert & Founder of SimplyVastuShastra"
+                  className="w-full h-full object-cover object-top scale-110"
+                />
               </div>
-            ))}
+            </div>
+
+            {/* Name label below portrait */}
+            <div className="mt-5 text-center">
+              <p className="font-serif text-xl font-bold text-brown-text leading-tight">
+                Charru Gupta
+              </p>
+              <p className="text-gold text-xs font-semibold tracking-[0.15em] uppercase mt-0.5">
+                Founder, SimplyVastuShastra
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

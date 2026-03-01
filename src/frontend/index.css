@@ -141,6 +141,28 @@
     background: linear-gradient(90deg, rgba(201, 168, 76, 0.6), transparent);
   }
 
+  /* Blog article modal content typography */
+  .blog-content p {
+    color: #4A3728;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2C1810;
+    margin-top: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .blog-content strong {
+    color: #2C1810;
+    font-weight: 600;
+  }
+
   /* Hero Om watermark */
   .hero-om-watermark {
     font-family: 'Playfair Display', Georgia, serif;

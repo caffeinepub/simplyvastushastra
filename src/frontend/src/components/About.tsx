@@ -1,6 +1,5 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { FaLeaf, FaStar } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
 
 const credentials = [
@@ -97,76 +96,28 @@ export default function About() {
               style={{ border: "2px solid #C9A84C", opacity: 0.3 }}
               aria-hidden="true"
             />
-            {/* Main image placeholder */}
+            {/* Main image with real photo */}
             <div
-              className="relative rounded-2xl overflow-hidden aspect-[3/4] flex flex-col items-center justify-center text-center"
+              className="relative rounded-2xl overflow-hidden aspect-[3/4]"
               style={{
-                background:
-                  "linear-gradient(160deg, #FFF8E7 0%, #F5F0E8 40%, #EDE0C4 100%)",
                 border: "3px solid #C9A84C",
               }}
             >
-              {/* Decorative inner patterns */}
-              <div
-                className="absolute inset-4 pointer-events-none"
-                style={{ opacity: 0.08, color: "#C9A84C" }}
-                aria-hidden="true"
-              >
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-full h-full"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="presentation"
-                >
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="90"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                  />
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="60"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                  />
-                  {[0, 60, 120].map((a) => (
-                    <line
-                      key={a}
-                      x1="100"
-                      y1="10"
-                      x2="100"
-                      y2="190"
-                      stroke="currentColor"
-                      strokeWidth="0.5"
-                      transform={`rotate(${a} 100 100)`}
-                    />
-                  ))}
-                </svg>
-              </div>
+              <img
+                src="/assets/uploads/charru-gupta.png"
+                alt="Charru Gupta — Founder of SimplyVastuShastra, Vastu Expert"
+                className="w-full h-full object-cover object-top"
+              />
 
-              {/* Lotus SVG icon */}
-              <div className="mb-4 text-gold" aria-hidden="true">
-                <FaLeaf size={48} />
-              </div>
-              <p className="font-serif text-2xl font-bold text-brown-text">
-                Charru Gupta
-              </p>
-              <p className="text-gold text-sm font-semibold tracking-wider mt-1">
-                Founder, SimplyVastuShastra
-              </p>
-              <div className="flex gap-1 mt-3" aria-label="5 star rating">
-                {["s1", "s2", "s3", "s4", "s5"].map((k) => (
-                  <FaStar key={k} className="text-gold" size={14} />
-                ))}
-              </div>
-              <p className="text-brown-light text-xs mt-2 italic">
-                Vastu Expert &amp; Educator
-              </p>
+              {/* Subtle overlay gradient at bottom for stats readability */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent, rgba(44,24,16,0.7))",
+                }}
+                aria-hidden="true"
+              />
 
               {/* Stats strip at bottom */}
               <div
@@ -177,12 +128,15 @@ export default function About() {
                   <div
                     key={s.label}
                     className={`flex-1 py-3 text-center ${i < 2 ? "border-r border-gold/30" : ""}`}
-                    style={{ background: "rgba(201,168,76,0.12)" }}
+                    style={{
+                      background: "rgba(44,24,16,0.6)",
+                      backdropFilter: "blur(4px)",
+                    }}
                   >
-                    <div className="font-serif font-bold text-gold-dark text-lg">
+                    <div className="font-serif font-bold text-gold text-lg">
                       {s.value}
                     </div>
-                    <div className="text-brown-medium text-xs leading-tight">
+                    <div className="text-cream text-xs leading-tight">
                       {s.label}
                     </div>
                   </div>

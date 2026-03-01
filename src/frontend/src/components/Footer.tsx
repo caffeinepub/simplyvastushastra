@@ -21,7 +21,7 @@ const socialLinks = [
   { Icon: FaInstagram, label: "Instagram", href: "#" },
   { Icon: FaYoutube, label: "YouTube", href: "#" },
   { Icon: FaFacebook, label: "Facebook", href: "#" },
-  { Icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/91XXXXXXXXXX" },
+  { Icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919871718653" },
 ];
 
 export default function Footer() {

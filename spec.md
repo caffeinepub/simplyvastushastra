@@ -1,56 +1,44 @@
 # SimplyVastuShastra
 
 ## Current State
-New project. No existing code. A full-stack Caffeine app with Motoko backend and React frontend will be created from scratch.
+- Full-stack Vastu website with Motoko backend and React/Tailwind frontend.
+- Sections: Header, Hero, About, Services, Courses, WhyChooseUs, Testimonials, Blog, Contact, FloatingWhatsApp, Footer.
+- Blog section shows 5 card previews with "Read More" buttons that do nothing (no modal/page).
+- Contact form submits to `actor.submitForm(...)` — stores in canister only; no email notification.
+- WhatsApp number is placeholder `91XXXXXXXXXX` in FloatingWhatsApp.tsx, Contact.tsx, and Footer.tsx.
+- About section has a placeholder image box (no real photo of Charru Gupta).
+- Hero section has no Charru Gupta photo.
+- Charru Gupta logo uploaded: `/assets/uploads/Black-and-Gold-Classy-Minimalist-Circular-Name-Logo-1.png`
+- Charru Gupta photo has been staged and will be saved as `/assets/uploads/charru-gupta.png`.
+- Backend has `submitForm` and `getAllSubmissions`. No email functionality (email feature is disabled on this plan).
 
 ## Requested Changes (Diff)
 
 ### Add
-- Full single-page website for SimplyVastuShastra — a Vastu Shastra consultancy and education brand by Charru Gupta
-- Sticky responsive navigation with logo, nav links, and "Book Consultation" CTA
-- Hero section with mandala pattern overlay, headline, subheadline, dual CTAs, trust indicators
-- About section with image placeholder, bio, credentials, signature element
-- Services section with 5 service cards (Residential, Commercial, Industrial, Online, Health/Wealth/Relationships) each with icon, description, benefits, and Book Now CTA
-- Courses section with feature highlights grid and 3 course cards (Beginner, Advanced, Professional) with price/duration/features and Enroll Now CTA
-- Why Choose Us section with 5 feature blocks
-- Testimonials section with 5 client cards (Priya Sharma, Rajesh Verma, Sunita Patel, Amit Kumar, Meera Joshi) with star ratings
-- Blog section with 5 SEO-targeted article cards in a 3-col grid
-- Contact section with a validated form (Name, Email, Phone, Service dropdown, Message) and contact info panel
-- Floating WhatsApp button always visible
-- Footer with logo, quick links, services list, social icons, copyright
-- Backend: contact form submission storage and retrieval
-- SEO: meta title, meta description, semantic HTML, Schema.org LocalBusiness markup
+- Save Charru Gupta's photo to `/assets/uploads/charru-gupta.png`.
+- Blog detail modal: clicking "Read More" on any blog card opens a full readable blog post in a modal/drawer with full article content. Each of the 5 posts needs 300-500 word full article content written on Vastu topics.
+- Add Charru Gupta photo to the About section (replacing placeholder box).
+- Add Charru Gupta photo to the Hero section (right side, editorial style).
+- Store form submissions in canister (already done); since email is disabled, show clear success message.
 
 ### Modify
-- Nothing (new project)
+- WhatsApp number: replace all `91XXXXXXXXXX` with `919871718653` in FloatingWhatsApp.tsx, Contact.tsx, Footer.tsx.
+- Phone number display: replace `+91 XXXXX XXXXX` with `+91 98717 18653` in Contact.tsx.
+- About section: replace placeholder SVG/icon with actual `<img>` of Charru Gupta photo.
+- Blog section: wire "Read More" buttons to open a blog detail modal with full article content.
+- Contact section: after successful form submission, display "Your message has been received. Charru Gupta will contact you at charrugupta10@gmail.com" (note: actual email sending is not available on this plan, submissions are stored in the canister).
 
 ### Remove
-- Nothing (new project)
+- Placeholder icon (FaLeaf) and decorative SVG in About section image area.
 
 ## Implementation Plan
-
-### Backend
-1. Define `ContactSubmission` type: id, name, email, phone, service, message, timestamp
-2. Expose `submitContact(name, email, phone, service, message)` update call — stores submission, returns Ok/Err
-3. Expose `getSubmissions()` query — returns list of all submissions (admin use)
-
-### Frontend
-1. Configure Tailwind with custom brand color tokens (beige, gold palette, brown shades)
-2. Add Google Fonts: Playfair Display, Inter, Cormorant Garamond via index.html
-3. Set global CSS: smooth scroll, base text color, font families
-4. Add SEO meta tags and LocalBusiness JSON-LD schema in index.html
-5. Create component files:
-   - `Header.tsx` — sticky nav, logo with Om symbol, hamburger mobile menu, scroll shadow
-   - `Hero.tsx` — gradient background, inline SVG mandala overlay, headline, CTAs, trust indicators, floating SVG decor
-   - `About.tsx` — two-column layout, image placeholder with gold frame, bio text, credential badges, signature
-   - `Services.tsx` — 5 cards grid with icons, descriptions, bullet benefits, Book Now buttons
-   - `Courses.tsx` — feature highlights icon grid, 3 course cards, Enroll Now CTA
-   - `WhyChooseUs.tsx` — 5 feature blocks with icons
-   - `Testimonials.tsx` — 5 star-rated client cards
-   - `Blog.tsx` — 5 article cards in 3-col grid with category tags
-   - `Contact.tsx` — two-column layout, validated form wired to backend submitContact, contact info panel
-   - `FloatingWhatsApp.tsx` — fixed bottom-right WhatsApp button
-   - `Footer.tsx` — logo, links, services, social icons, copyright
-6. Implement Framer Motion scroll-triggered fade-in-up animations on each section
-7. Wire contact form to backend `submitContact` actor call
-8. Validate form fields before submission (name required, email format, phone format)
+1. Save Charru Gupta photo from staged uploads into the correct public assets path.
+2. Create a `BlogModal` component that renders full blog articles in a readable modal dialog.
+3. Write full 300-500 word articles for all 5 blog posts.
+4. Update `Blog.tsx` to use state for selected post and render `BlogModal`.
+5. Update `About.tsx` to show `<img src="/assets/uploads/charru-gupta.png">` instead of placeholder.
+6. Update `Hero.tsx` to add Charru Gupta photo on the right side.
+7. Update `FloatingWhatsApp.tsx`: replace `91XXXXXXXXXX` → `919871718653`.
+8. Update `Contact.tsx`: replace WhatsApp link and phone number display with real number.
+9. Update `Footer.tsx`: replace WhatsApp link with real number.
+10. Update Contact form success message to mention charrugupta10@gmail.com contact.

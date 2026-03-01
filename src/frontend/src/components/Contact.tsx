@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import {
   FaEnvelope,
@@ -175,10 +175,11 @@ export default function Contact() {
                     ॐ
                   </div>
                   <h3 className="font-serif text-2xl font-bold text-brown-text mb-2">
-                    Thank You!
+                    Thank you! Your consultation request has been received.
                   </h3>
                   <p className="text-brown-medium mb-6">
-                    We'll contact you soon to schedule your consultation.
+                    Charru Gupta will personally review your message and get
+                    back to you at your email address.
                   </p>
                   <button
                     type="button"
@@ -300,7 +301,7 @@ export default function Contact() {
                         type="tel"
                         value={form.phone}
                         onChange={handleChange}
-                        placeholder="+91 XXXXX XXXXX"
+                        placeholder="+91 98717 18653"
                         required
                         autoComplete="tel"
                         aria-required="true"
@@ -450,7 +451,7 @@ export default function Contact() {
 
             <div className="space-y-5 mb-8">
               <a
-                href="https://wa.me/91XXXXXXXXXX"
+                href="https://wa.me/919871718653"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 group"
@@ -482,7 +483,7 @@ export default function Contact() {
                     Phone
                   </p>
                   <p className="text-cream font-semibold text-sm">
-                    +91 XXXXX XXXXX
+                    +91 98717 18653
                   </p>
                 </div>
               </div>
@@ -537,7 +538,7 @@ export default function Contact() {
                   {
                     Icon: FaWhatsapp,
                     label: "WhatsApp",
-                    href: "https://wa.me/91XXXXXXXXXX",
+                    href: "https://wa.me/919871718653",
                   },
                 ].map(({ Icon, label, href }) => (
                   <a

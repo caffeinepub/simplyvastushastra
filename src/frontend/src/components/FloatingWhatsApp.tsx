@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -47,7 +47,7 @@ export default function FloatingWhatsApp() {
 
       {/* Button */}
       <a
-        href="https://wa.me/91XXXXXXXXXX"
+        href="https://wa.me/919871718653"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"
