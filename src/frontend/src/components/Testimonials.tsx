@@ -329,6 +329,78 @@ export default function Testimonials() {
             </motion.article>
           ))}
         </motion.div>
+
+        {/* Post-testimonials CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mt-14 text-center"
+        >
+          <div
+            className="inline-block rounded-3xl px-8 py-8 sm:px-14 sm:py-10 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(135deg, #2C1810 0%, #3D2B1F 50%, #2C1810 100%)",
+              border: "1px solid rgba(201,168,76,0.25)",
+              boxShadow:
+                "0 12px 40px rgba(44,24,16,0.15), inset 0 1px 0 rgba(201,168,76,0.08)",
+            }}
+          >
+            {/* Subtle dot pattern */}
+            <div
+              className="absolute inset-0 rounded-3xl pointer-events-none"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, rgba(201,168,76,0.04) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+              aria-hidden="true"
+            />
+
+            <div className="relative z-10">
+              {/* Star row */}
+              <div
+                className="flex items-center justify-center gap-1 mb-4"
+                aria-label="5 out of 5 stars"
+              >
+                {[1, 2, 3, 4, 5].map((k) => (
+                  <FaStar
+                    key={k}
+                    className="text-gold"
+                    size={16}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <p
+                className="font-serif text-xl sm:text-2xl font-bold mb-2"
+                style={{ color: "#F0D080" }}
+              >
+                Join 1000+ Happy Families
+              </p>
+              <p
+                className="font-accent italic text-base mb-6 max-w-sm mx-auto"
+                style={{ color: "rgba(255,248,231,0.65)" }}
+              >
+                Real transformations, real results. Book your personal Vastu
+                consultation today.
+              </p>
+              <button
+                type="button"
+                onClick={() =>
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="btn-gold-shimmer px-10 py-4 rounded-full text-[14px] font-bold shadow-[0_4px_24px_rgba(201,168,76,0.35)] hover:shadow-[0_6px_32px_rgba(201,168,76,0.55)] hover:-translate-y-0.5 transition-all duration-300 min-h-[52px]"
+              >
+                Book Your Consultation →
+              </button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

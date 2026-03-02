@@ -373,7 +373,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-col gap-3 mb-5"
+            className="flex flex-col gap-3 mb-4"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.55 }}
@@ -392,6 +392,34 @@ export default function Hero() {
             >
               Explore Courses
             </button>
+          </motion.div>
+
+          {/* Urgency nudge */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.65 }}
+            className="mb-5"
+          >
+            <span
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold"
+              style={{
+                background: "rgba(201,168,76,0.08)",
+                border: "1px solid rgba(201,168,76,0.3)",
+                color: "#8B6914",
+              }}
+            >
+              <span
+                className="w-2 h-2 rounded-full flex-shrink-0"
+                style={{
+                  background: "#22c55e",
+                  boxShadow: "0 0 0 3px rgba(34,197,94,0.25)",
+                  animation: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+                }}
+                aria-hidden="true"
+              />
+              Limited slots this month · 12 families joined this week
+            </span>
           </motion.div>
 
           {/* Trust stats — 4-column grid */}
@@ -527,7 +555,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <motion.div
-              className="flex items-center gap-4 mb-12"
+              className="flex items-center gap-4 mb-5"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.32, ease: "easeOut" }}
@@ -546,6 +574,35 @@ export default function Hero() {
               >
                 Explore Courses
               </button>
+            </motion.div>
+
+            {/* Urgency nudge — desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.42, ease: "easeOut" }}
+              className="mb-9"
+            >
+              <span
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[12px] font-semibold"
+                style={{
+                  background: "rgba(201,168,76,0.08)",
+                  border: "1px solid rgba(201,168,76,0.3)",
+                  color: "#7A5C3E",
+                }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{
+                    background: "#22c55e",
+                    boxShadow: "0 0 0 3px rgba(34,197,94,0.25)",
+                    animation: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+                  }}
+                  aria-hidden="true"
+                />
+                Limited consultation slots this month · 12 families joined this
+                week
+              </span>
             </motion.div>
 
             {/* Trust indicators */}

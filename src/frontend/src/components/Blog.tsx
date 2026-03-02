@@ -147,12 +147,38 @@ export default function Blog() {
           ))}
         </motion.div>
 
+        {/* Inline consultation CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 text-center"
+        >
+          <p className="text-brown-medium text-sm sm:text-base font-accent italic">
+            Want Vastu tips for your home?{" "}
+            <span className="text-brown-text font-semibold not-italic">
+              Get a personalised consultation.
+            </span>
+          </p>
+          <button
+            type="button"
+            onClick={() =>
+              document
+                .querySelector("#contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="flex-shrink-0 inline-flex items-center gap-2 btn-gold-magnetic px-6 py-2.5 rounded-full text-sm font-bold shadow-[0_2px_12px_rgba(201,168,76,0.3)] hover:shadow-[0_4px_20px_rgba(201,168,76,0.45)] hover:-translate-y-0.5 transition-all duration-300"
+          >
+            ✦ Talk to Charru Gupta
+          </button>
+        </motion.div>
+
         {/* View All Blogs CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.5, delay: 0.65 }}
+          className="mt-6 text-center"
         >
           <Link
             to="/blogs"

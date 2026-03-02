@@ -242,12 +242,17 @@ export default function About() {
               ))}
             </ul>
 
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={() =>
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="inline-flex btn-gold-magnetic px-7 py-3.5 rounded-full text-sm font-semibold shadow-sm hover:shadow-gold transition-all duration-300"
             >
-              Know More About Charru →
-            </a>
+              Book a Consultation →
+            </button>
           </motion.div>
         </div>
       </div>

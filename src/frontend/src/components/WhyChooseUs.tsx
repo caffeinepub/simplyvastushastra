@@ -364,6 +364,45 @@ export default function WhyChooseUs() {
             </button>
           </motion.div>
         </motion.div>
+
+        {/* Bottom CTA — full-width journey prompt */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-14 text-center"
+        >
+          <div
+            className="inline-flex flex-col sm:flex-row items-center gap-6 sm:gap-10 px-8 py-6 rounded-2xl"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(201,168,76,0.2)",
+            }}
+          >
+            <div className="text-center sm:text-left">
+              <p
+                className="font-serif text-xl font-bold mb-1"
+                style={{ color: "#F0D080" }}
+              >
+                Experience the difference yourself
+              </p>
+              <p className="text-sm" style={{ color: "rgba(255,248,231,0.6)" }}>
+                Join 1000+ families who've already transformed their spaces.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() =>
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="flex-shrink-0 btn-gold-magnetic px-9 py-4 rounded-full text-[14px] font-bold shadow-[0_4px_20px_rgba(201,168,76,0.3)] hover:shadow-[0_6px_28px_rgba(201,168,76,0.5)] hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap min-h-[52px]"
+            >
+              Start Your Vastu Journey →
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

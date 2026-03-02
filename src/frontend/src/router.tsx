@@ -13,6 +13,7 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import MidPageCTA from "./components/MidPageCTA";
 import ScrollToTop from "./components/ScrollToTop";
 import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
@@ -32,6 +33,7 @@ function HomePage() {
       <Courses />
       <WhyChooseUs />
       <Testimonials />
+      <MidPageCTA />
       <Blog />
       <Contact />
     </main>
