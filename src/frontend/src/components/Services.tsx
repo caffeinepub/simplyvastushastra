@@ -1,12 +1,6 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import {
-  FaBuilding,
-  FaHeart,
-  FaHome,
-  FaIndustry,
-  FaLaptop,
-} from "react-icons/fa";
+import { FaBuilding, FaHome, FaIndustry } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
 
 const services = [
@@ -37,30 +31,6 @@ const services = [
     help: "Optimize your industrial setup with Vastu principles to ensure smooth workflows, worker safety, and increased output.",
     benefits: ["Smooth operations", "Worker safety", "Increased output"],
     accentColor: "#B8860B",
-  },
-  {
-    icon: FaLaptop,
-    title: "Online Vastu Consultation",
-    problem: "Can't visit in person?",
-    help: "Get expert Vastu guidance from anywhere in the world. Distance is no barrier to transformation.",
-    benefits: [
-      "Consult from anywhere",
-      "Detailed floor plan analysis",
-      "Video call session",
-    ],
-    accentColor: "#C9A84C",
-  },
-  {
-    icon: FaHeart,
-    title: "Vastu for Health, Wealth & Relationships",
-    problem: "Life feels out of balance?",
-    help: "Address specific life challenges with targeted Vastu solutions for health, financial growth, and harmonious relationships.",
-    benefits: [
-      "Health improvements",
-      "Wealth attraction",
-      "Relationship harmony",
-    ],
-    accentColor: "#D4AF37",
   },
 ];
 

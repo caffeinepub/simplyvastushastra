@@ -20,6 +20,7 @@ import TransformationStrip from "./components/TransformationStrip";
 import WhyChooseUs from "./components/WhyChooseUs";
 import BlogPostPage from "./pages/BlogPostPage";
 import BlogsPage from "./pages/BlogsPage";
+import VastuExperienceCentrePage from "./pages/VastuExperienceCentrePage";
 
 function HomePage() {
   return (
@@ -72,10 +73,17 @@ const blogPostRoute = createRoute({
   component: BlogPostPage,
 });
 
+const vastuExperienceCentreRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/vastu-experience-centre",
+  component: VastuExperienceCentrePage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   blogsRoute,
   blogPostRoute,
+  vastuExperienceCentreRoute,
 ]);
 
 export const router = createRouter({

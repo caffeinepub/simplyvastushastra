@@ -234,135 +234,113 @@ export default function Hero() {
         <MandalaSVG />
       </div>
 
-      {/* ── MOBILE LAYOUT: Cinematic full-screen magazine cover ── */}
+      {/* ── MOBILE LAYOUT: Photo above, text content below ── */}
       <div
-        className="lg:hidden relative z-10 w-full"
-        style={{ minHeight: "100svh" }}
+        className="lg:hidden relative z-10 w-full flex flex-col"
+        style={{ minHeight: "100svh", paddingTop: "72px" }}
       >
-        {/* Full-bleed portrait covering entire screen */}
+        {/* Photo block — top half, no text on it */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.04 }}
+          initial={{ opacity: 0, scale: 1.03 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-          className="absolute inset-0 w-full h-full"
+          transition={{ duration: 1.0, ease: "easeOut" }}
+          className="relative w-full flex-shrink-0"
+          style={{ height: "52vw", minHeight: "220px", maxHeight: "340px" }}
         >
           <img
             src="/assets/uploads/charru-gupta.png"
             alt="Charru Gupta — Vastu Expert & Founder of SimplyVastuShastra"
             className="w-full h-full object-cover"
-            style={{ objectPosition: "50% 8%" }}
+            style={{ objectPosition: "50% 12%" }}
           />
-          {/* Cinematic vignette — dark at edges, clear at center face */}
+          {/* Subtle bottom fade to blend into content section */}
           <div
-            className="absolute inset-0"
+            className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 80% 70% at 50% 25%, transparent 30%, rgba(20,8,4,0.35) 75%, rgba(20,8,4,0.7) 100%)",
+                "linear-gradient(to bottom, transparent, rgba(245,240,232,0.95))",
             }}
             aria-hidden="true"
           />
-          {/* Bottom gradient for text readability */}
+          {/* Decorative gold frame — top corners */}
           <div
-            className="absolute inset-0"
+            className="absolute top-3 left-3 w-8 h-8 pointer-events-none"
             style={{
-              background:
-                "linear-gradient(to bottom, rgba(20,8,4,0.15) 0%, transparent 30%, transparent 45%, rgba(20,8,4,0.55) 70%, rgba(20,8,4,0.92) 90%, #140804 100%)",
+              borderTop: "2px solid rgba(201,168,76,0.7)",
+              borderLeft: "2px solid rgba(201,168,76,0.7)",
             }}
             aria-hidden="true"
           />
-          {/* Top gradient for header clearance */}
           <div
-            className="absolute top-0 left-0 right-0 h-28"
+            className="absolute top-3 right-3 w-8 h-8 pointer-events-none"
             style={{
-              background:
-                "linear-gradient(to bottom, rgba(20,8,4,0.5), transparent)",
+              borderTop: "2px solid rgba(201,168,76,0.7)",
+              borderRight: "2px solid rgba(201,168,76,0.7)",
             }}
             aria-hidden="true"
           />
         </motion.div>
 
-        {/* Golden corner frame accents */}
+        {/* Text content — clean background, fully readable */}
         <div
-          className="absolute top-20 left-4 w-10 h-10 pointer-events-none z-20"
-          style={{
-            borderTop: "2px solid rgba(201,168,76,0.7)",
-            borderLeft: "2px solid rgba(201,168,76,0.7)",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute top-20 right-4 w-10 h-10 pointer-events-none z-20"
-          style={{
-            borderTop: "2px solid rgba(201,168,76,0.7)",
-            borderRight: "2px solid rgba(201,168,76,0.7)",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Mobile top badge — overlaid on image */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="absolute top-24 left-0 right-0 flex justify-center z-20"
+          className="flex-1 px-5 pt-4 pb-28"
+          style={{ background: "linear-gradient(to bottom, #F5F0E8, #FFF8E7)" }}
         >
-          <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase border border-gold/50 text-gold backdrop-blur-sm"
-            style={{ background: "rgba(20,8,4,0.4)" }}
+          {/* Eyebrow badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mb-3"
           >
             <span
-              className="w-1.5 h-1.5 rounded-full bg-gold inline-block animate-glow-pulse"
-              aria-hidden="true"
-            />
-            Ancient Wisdom · Modern Solutions
-          </span>
-        </motion.div>
-
-        {/* Bottom content — overlaid on image */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 px-5 pb-8 pt-6">
-          {/* Name & title */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="mb-4"
-          >
-            <p
-              className="text-[11px] font-bold tracking-[0.22em] uppercase mb-1"
-              style={{ color: "#C9A84C" }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase border text-gold-deep"
+              style={{
+                background: "rgba(255,255,255,0.85)",
+                border: "1px solid rgba(201,168,76,0.45)",
+              }}
             >
-              Charru Gupta · Founder, SimplyVastuShastra
-            </p>
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-gold inline-block animate-glow-pulse"
+                aria-hidden="true"
+              />
+              Ancient Wisdom · Modern Solutions
+            </span>
           </motion.div>
 
-          {/* H1 — magazine style, on dark image */}
+          {/* Name label */}
+          <motion.p
+            className="text-[11px] font-bold tracking-[0.2em] uppercase mb-2"
+            style={{ color: "#C9A84C" }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+          >
+            Charru Gupta · Founder, SimplyVastuShastra
+          </motion.p>
+
+          {/* H1 */}
           <motion.h1
             className="font-serif leading-[1.05] tracking-tight mb-3"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <span
-              className="block text-[2.4rem] font-bold leading-[1.0]"
-              style={{ color: "#FFF8E7" }}
-            >
+            <span className="block text-[2.2rem] font-bold leading-[1.0] text-brown-text">
               Transform Your
             </span>
-            <span className="block text-[2.8rem] font-bold leading-[1.0] text-shimmer-gold">
+            <span className="block text-[2.6rem] font-bold leading-[1.0] text-shimmer-gold">
               Home &amp; Life
             </span>
-            <span
-              className="block text-[1.2rem] font-normal leading-snug mt-1.5"
-              style={{ color: "rgba(255,248,231,0.75)" }}
-            >
+            <span className="block text-[1.1rem] font-normal leading-snug mt-1.5 text-brown-medium">
               with Scientific Vastu Solutions
             </span>
           </motion.h1>
 
-          {/* Animated gold line */}
+          {/* Animated gold divider */}
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: "100px" }}
+            animate={{ width: "90px" }}
             transition={{ duration: 1.0, delay: 0.7, ease: "easeOut" }}
             className="h-[2px] mb-4 rounded-full"
             style={{
@@ -374,81 +352,75 @@ export default function Hero() {
 
           {/* Google Reviews chip */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="mb-5"
           >
             <span
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-bold"
               style={{
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(201,168,76,0.4)",
-                color: "rgba(255,248,231,0.9)",
-                backdropFilter: "blur(8px)",
+                background: "rgba(255,255,255,0.9)",
+                border: "1px solid rgba(201,168,76,0.35)",
+                color: "#5C4033",
+                boxShadow: "0 2px 8px rgba(44,24,16,0.07)",
               }}
             >
               <span style={{ color: "#F4B400" }}>★★★★★</span>
-              Google Reviews · 5.0 · Trusted by 1000+ Families
+              Google Reviews · 5.0 · 1000+ Families
             </span>
           </motion.div>
 
-          {/* CTAs — full width on mobile */}
+          {/* CTAs */}
           <motion.div
             className="flex flex-col gap-3 mb-5"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
           >
             <button
               type="button"
               onClick={() => handleScrollTo("#contact")}
-              className="btn-gold-magnetic w-full py-4 rounded-full text-[16px] font-bold shadow-[0_4px_24px_rgba(201,168,76,0.5)] text-center min-h-[56px]"
+              className="btn-gold-magnetic w-full py-4 rounded-full text-[15px] font-bold shadow-[0_4px_20px_rgba(201,168,76,0.4)] text-center min-h-[52px]"
             >
               ✦ Book a Consultation
             </button>
             <button
               type="button"
               onClick={() => handleScrollTo("#courses")}
-              className="w-full py-3.5 rounded-full text-[14px] text-center min-h-[50px] font-semibold transition-all duration-300"
-              style={{
-                border: "1.5px solid rgba(201,168,76,0.5)",
-                color: "rgba(255,248,231,0.85)",
-                background: "rgba(255,255,255,0.06)",
-                backdropFilter: "blur(8px)",
-              }}
+              className="btn-gold-outline w-full py-3.5 rounded-full text-[14px] text-center min-h-[48px] font-semibold transition-all duration-300"
             >
               Explore Courses
             </button>
           </motion.div>
 
-          {/* Trust stats — compact 2x2 grid */}
+          {/* Trust stats — 4-column grid */}
           <motion.div
             className="grid grid-cols-4 gap-2"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.65 }}
           >
             {trustItems.map((item, i) => (
               <div
                 key={item.label}
-                className="rounded-lg p-2.5 text-center"
+                className="rounded-xl p-2.5 text-center"
                 style={{
-                  background: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(201,168,76,0.2)",
-                  backdropFilter: "blur(8px)",
+                  background: "rgba(255,255,255,0.75)",
+                  border: "1px solid rgba(201,168,76,0.25)",
+                  boxShadow: "0 2px 8px rgba(44,24,16,0.06)",
                 }}
               >
                 <div
                   className="font-serif text-base font-bold leading-none"
-                  style={{ color: "#D4AF37" }}
+                  style={{ color: "#C9A84C" }}
                 >
                   {trustItems[i].value}
                   {item.suffix}
                 </div>
                 <div
                   className="text-[9px] font-medium mt-0.5 tracking-wide leading-tight"
-                  style={{ color: "rgba(255,248,231,0.6)" }}
+                  style={{ color: "#7A5C3E" }}
                 >
                   {item.label}
                 </div>

@@ -1,55 +1,38 @@
-# SimplyVastuShastra
+# SimplyVastuShastra — Vastu Experience Centre Premium Overhaul
 
 ## Current State
-- Single-page React app with sections: Hero, About, Services, Courses, WhyChooseUs, Testimonials, Blog (cards + modal), Contact, Footer.
-- Blog section shows 5 posts as cards; clicking opens a modal. No dedicated blog page.
-- `index.html` has basic title, description, one OG tag, and a minimal LocalBusiness schema. No canonical URL, no robots meta, no sitemap, no keywords meta, no geo meta tags.
-- No React Router — all navigation is anchor-scroll based.
-- Header links use `#blog` anchor to scroll to the blog section.
+The `/vastu-experience-centre` page exists with these sections: ParallaxHero, StatsStrip, StorySection (timeline), ScienceSection (myth vs science cards), WhatVastuIsSection (4 principles), TransformationStories (3 case studies), FinalCTA. The design is functional but not world-class. It uses emoji icons, basic card layouts, and lacks the immersive, editorial luxury feel worthy of the best Vastu experience in the world. The data is factually sound.
 
 ## Requested Changes (Diff)
 
 ### Add
-- **React Router** (`react-router-dom`) — add BrowserRouter in `main.tsx` so routes work.
-- **Dedicated `/blogs` page** (`src/frontend/src/pages/BlogsPage.tsx`) — full-page blog listing with all posts, category filters, search bar, SEO-optimized H1, meta description, and structured `Article` schema data per post. Each post has its own URL slug (`/blogs/top-10-vastu-tips`, etc.) rendered via a nested route.
-- **Individual blog post page** (`src/frontend/src/pages/BlogPostPage.tsx`) — full article view at `/blogs/:slug` with dynamic `<title>`, meta description, Open Graph, and JSON-LD `BlogPosting` schema. Back button returns to `/blogs`.
-- **`sitemap.xml`** in `public/` listing all main routes and all blog post URLs with `lastmod` and `changefreq`.
-- **`robots.txt`** in `public/` allowing all crawlers and pointing to sitemap.
-- **SEO enhancements to `index.html`**:
-  - Expanded `<title>` with primary keywords.
-  - `<meta name="keywords">` with 50+ Vastu-related keywords.
-  - `<meta name="robots" content="index, follow">`.
-  - `<meta name="geo.region" content="IN">`, `<meta name="geo.placename" content="India">`.
-  - Canonical `<link rel="canonical">`.
-  - Expanded Open Graph tags (og:image, og:url, og:site_name, og:locale).
-  - Twitter Card tags.
-  - Enhanced JSON-LD schema: `LocalBusiness` + `Person` + `WebSite` with `SearchAction`.
-  - `<meta name="author" content="Charru Gupta">`.
-- **Blog nav link** in Header and Footer pointing to `/blogs` (not `#blog`).
-- **"View All Blogs" button** on the homepage Blog section linking to `/blogs`.
-- Blog post `data` file (`src/frontend/src/data/blogPosts.ts`) — extract all blog content here so it is shared between homepage Blog section, BlogsPage, and BlogPostPage. Add `slug`, `date`, `author`, `metaDescription`, `keywords` fields to each post.
-- Add 5 more blog posts covering: Vastu for bedroom, Vastu for north-facing house, Vastu for money and wealth, Vastu remedies without demolition, Vastu for newly married couples.
+- Cinematic full-bleed section with ambient video-like animated background for the hero
+- "The Ancient Codex" section — large typographic pull-quote moments with Sanskrit text and translations
+- Immersive "Direction Energy Map" interactive visual — an animated octagonal Vastu Purusha Mandala graphic
+- "Meet Your Guide" bridge section — Charru Gupta introduction with credential strip
+- Premium floating nav pills for section jumping inside the Experience Centre
+- Dramatic chapter-title transitions between sections (numbered, editorial)
+- Rich animated particle/star fields and parallax depth layers
+- World-class typography — Fraunces for display, General Sans for body
+- Animated number counters using Intersection Observer
 
 ### Modify
-- `Blog.tsx` — import posts from `blogPosts.ts`, add "View All Blogs →" CTA link at bottom of section.
-- `BlogModal.tsx` — still used on homepage for quick preview; keep as is.
-- `Header.tsx` — Blog nav link now navigates to `/blogs` page using React Router `<Link>`. Also handle `#home`, `#about`, etc. — on the homepage these remain anchor links; on sub-pages they navigate to `/#home`, etc.
-- `Footer.tsx` — Blog quick link updated to `/blogs`.
-- `App.tsx` — wrap with `<Routes>`: `/` renders the existing homepage, `/blogs` renders `BlogsPage`, `/blogs/:slug` renders `BlogPostPage`. Shared layout (Header, FloatingWhatsApp, Footer, ScrollToTop) wraps all routes.
-- `main.tsx` — wrap app in `<BrowserRouter>`.
+- Hero: Full viewport cinematic immersion, layered parallax Om watermark + mandala, dramatic gold gradient text animation, ambient glow rings with stagger
+- Stats Strip: Transform into floating cards with depth shadows and count-up numbers
+- Timeline section: Redesign with large editorial chapter numbers, full-bleed alternating image-and-text layout style
+- Science cards: Full redesign with split-screen Myth/Science layout, dramatic reveal animations, no emoji — use SVG icons
+- Principles: Redesign as large "codex pages" with illustrated borders and key Sanskrit terms
+- Transformation stories: Before/After redesign with dramatic visual contrast treatment
+- Final CTA: Cinematic dark gold section with floating particles and mandala motif
 
 ### Remove
-- Nothing removed; existing blog modal on homepage stays for quick-read UX.
+- All emoji icons from content sections (replace with SVG or pure CSS)
+- Generic rounded-2xl/white card aesthetic throughout
+- Flat colour backgrounds — replace all with rich layered gradients
 
 ## Implementation Plan
-1. Install `react-router-dom` if not already present.
-2. Create `src/frontend/src/data/blogPosts.ts` with all 10 posts (5 existing + 5 new), each with `slug`, `title`, `category`, `excerpt`, `readTime`, `content`, `date`, `author`, `metaDescription`, `keywords[]`, `coverImage`.
-3. Create `src/frontend/src/pages/BlogsPage.tsx` — full blog listing with search + category filter, SEO head tags via a `useEffect` that sets `document.title` and meta description, JSON-LD `ItemList` schema.
-4. Create `src/frontend/src/pages/BlogPostPage.tsx` — renders full article, sets dynamic document.title + meta description + JSON-LD `BlogPosting` schema on mount, Back button.
-5. Update `App.tsx` to use React Router `<Routes>` with a shared layout.
-6. Update `main.tsx` to add `<BrowserRouter>`.
-7. Update `Blog.tsx` to import from `blogPosts.ts` and add "View All Blogs" link.
-8. Update `Header.tsx` — Blog link → `/blogs`, home-page anchors work correctly on both routes.
-9. Update `Footer.tsx` — Blog link → `/blogs`.
-10. Upgrade `index.html` with full SEO meta tags, keywords, geo tags, canonical, OG/Twitter, and enhanced JSON-LD.
-11. Create `public/sitemap.xml` and `public/robots.txt`.
+1. Generate 2 hero images for the Experience Centre (ambient Vastu architecture visual)
+2. Rebuild entire VastuExperienceCentrePage.tsx with all new sections and premium design
+3. Ensure correct factual data throughout (6000 BCE origin, science explanations, case studies)
+4. Add Fraunces + General Sans fonts properly via @font-face if not already present
+5. Verify all links, WhatsApp number, and CTAs are correct

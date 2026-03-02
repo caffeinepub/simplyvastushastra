@@ -18,8 +18,8 @@ const services = [
   "Residential Vastu",
   "Commercial & Office Vastu",
   "Industrial Vastu",
-  "Online Consultation",
-  "Vastu for Health/Wealth/Relationships",
+  "Foundation Vastu Course",
+  "Advanced Vastu Course",
 ];
 
 type FormState = {
@@ -605,7 +605,7 @@ export default function Contact() {
                     Email
                   </p>
                   <p className="text-cream font-semibold text-sm">
-                    hello@simplyvastushastra.com
+                    info@charrugupta.com
                   </p>
                 </div>
               </div>

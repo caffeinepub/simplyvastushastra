@@ -13,8 +13,8 @@ const serviceLinks = [
   "Residential Vastu",
   "Commercial Vastu",
   "Industrial Vastu",
-  "Online Consultation",
-  "Health & Wellness",
+  "Foundation Vastu Course",
+  "Advanced Vastu Course",
 ];
 
 const socialLinks = [
@@ -199,6 +199,17 @@ export default function Footer() {
                     Blog
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/vastu-experience-centre"
+                    className="text-brown-light hover:text-gold text-sm transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <span className="text-gold/40 text-xs" aria-hidden="true">
+                      ›
+                    </span>
+                    Vastu Experience Centre
+                  </Link>
+                </li>
               </ul>
             </nav>
 
@@ -246,7 +257,7 @@ export default function Footer() {
               </div>
               <div className="space-y-2">
                 <p className="text-brown-light text-sm">
-                  📧 charrugupta10@gmail.com
+                  📧 info@charrugupta.com
                 </p>
                 <p className="text-brown-light text-sm">
                   📍 India (Online &amp; In-Person)

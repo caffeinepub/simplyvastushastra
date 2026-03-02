@@ -15,26 +15,26 @@ function injectBlogPostJsonLd(post: (typeof BLOG_POSTS)[0]) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription,
-    image: `https://simplyvastushastra.in${post.coverImage}`,
+    image: `https://simplyvastushastra.com${post.coverImage}`,
     datePublished: post.date,
     dateModified: post.date,
     author: {
       "@type": "Person",
       name: post.author,
-      url: "https://simplyvastushastra.in",
+      url: "https://simplyvastushastra.com",
     },
     publisher: {
       "@type": "Organization",
       name: "SimplyVastuShastra",
-      url: "https://simplyvastushastra.in",
+      url: "https://simplyvastushastra.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://simplyvastushastra.in/assets/uploads/Black-and-Gold-Classy-Minimalist-Circular-Name-Logo-1.png",
+        url: "https://simplyvastushastra.com/assets/uploads/Black-and-Gold-Classy-Minimalist-Circular-Name-Logo-1.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://simplyvastushastra.in/blogs/${post.slug}`,
+      "@id": `https://simplyvastushastra.com/blogs/${post.slug}`,
     },
     keywords: post.keywords.join(", "),
     articleSection: post.category,
@@ -79,7 +79,7 @@ export default function BlogPostPage() {
     if (canonicalEl) {
       canonicalEl.setAttribute(
         "href",
-        `https://simplyvastushastra.in/blogs/${post.slug}`,
+        `https://simplyvastushastra.com/blogs/${post.slug}`,
       );
     }
 
@@ -99,12 +99,12 @@ export default function BlogPostPage() {
     if (ogUrl)
       ogUrl.setAttribute(
         "content",
-        `https://simplyvastushastra.in/blogs/${post.slug}`,
+        `https://simplyvastushastra.com/blogs/${post.slug}`,
       );
     if (ogImage)
       ogImage.setAttribute(
         "content",
-        `https://simplyvastushastra.in${post.coverImage}`,
+        `https://simplyvastushastra.com${post.coverImage}`,
       );
 
     injectBlogPostJsonLd(post);

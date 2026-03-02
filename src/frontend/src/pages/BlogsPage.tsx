@@ -18,12 +18,12 @@ function injectBlogsJsonLd() {
     name: "SimplyVastuShastra Blog",
     description:
       "Expert Vastu Shastra articles, tips, and guides by Charru Gupta",
-    url: "https://simplyvastushastra.in/blogs",
+    url: "https://simplyvastushastra.com/blogs",
     numberOfItems: BLOG_POSTS.length,
     itemListElement: BLOG_POSTS.map((post, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://simplyvastushastra.in/blogs/${post.slug}`,
+      url: `https://simplyvastushastra.com/blogs/${post.slug}`,
       name: post.title,
     })),
   });
@@ -51,21 +51,21 @@ export default function BlogsPage() {
   useEffect(() => {
     const prevTitle = document.title;
     document.title =
-      "Vastu Blog | Tips, Guides & Expert Insights | SimplyVastuShastra";
+      "Vastu Blog | Expert Vastu Tips for Noida, Delhi, Gurgaon | SimplyVastuShastra";
 
     const metaDesc = document.querySelector('meta[name="description"]');
     const prevDesc = metaDesc?.getAttribute("content") ?? "";
     if (metaDesc) {
       metaDesc.setAttribute(
         "content",
-        "Read expert Vastu Shastra articles by Charru Gupta — tips for home, office, wealth, relationships, and remedies without demolition. Updated regularly.",
+        "Expert Vastu Shastra articles by Charru Gupta, Best Vastu Consultant in Noida, Delhi, Gurgaon & NCR — tips for home, office, wealth, relationships, and remedies without demolition. Updated regularly.",
       );
     }
 
     const canonicalEl = document.querySelector('link[rel="canonical"]');
     const prevCanonical = canonicalEl?.getAttribute("href") ?? "";
     if (canonicalEl) {
-      canonicalEl.setAttribute("href", "https://simplyvastushastra.in/blogs");
+      canonicalEl.setAttribute("href", "https://simplyvastushastra.com/blogs");
     }
 
     injectBlogsJsonLd();

@@ -14,8 +14,8 @@ import MandalaSVG from "./MandalaSVG";
 import SectionHeader from "./SectionHeader";
 
 const features = [
-  { icon: FaGraduationCap, label: "Beginner to Advanced" },
-  { icon: FaVideo, label: "Live & Recorded Classes" },
+  { icon: FaGraduationCap, label: "Foundation to Advanced" },
+  { icon: FaVideo, label: "Live Classes Only" },
   { icon: FaCertificate, label: "Certification Provided" },
   { icon: FaBook, label: "Practical Case Studies" },
   { icon: FaHeadset, label: "Ongoing Support" },
@@ -24,41 +24,28 @@ const features = [
 
 const courses = [
   {
-    title: "Beginner Vastu Course",
-    price: "Enquire Now",
-    priceNote: "4 Weeks · Self-paced",
-    duration: "4 Weeks",
+    title: "Foundation Vastu Course",
+    priceNote: "Live Classes · Interactive Sessions",
+    duration: "Live",
     badge: null,
     features: [
-      "Self-paced video lessons",
-      "Basic Vastu principles",
+      "Live interactive classes",
+      "Core Vastu principles & directions",
+      "Vastu for home & workplace",
       "Certificate of completion",
       "Community access",
     ],
   },
   {
-    title: "Advanced Vastu Practitioner",
-    price: "Enquire Now",
-    priceNote: "8 Weeks · Live + Recorded",
-    duration: "8 Weeks",
-    badge: null,
+    title: "Advanced Vastu Course",
+    priceNote: "Live Classes · Expert Mentoring",
+    duration: "Live",
+    badge: "Expert Level",
     features: [
-      "Live + recorded sessions",
-      "Advanced techniques",
-      "Case study projects",
-      "Mentor support",
-    ],
-  },
-  {
-    title: "Professional Vastu Consultant",
-    price: "Enquire Now",
-    priceNote: "12 Weeks · Complete Program",
-    duration: "12 Weeks",
-    badge: "Most Popular",
-    features: [
-      "Complete curriculum",
-      "Business setup guidance",
-      "Client consultation training",
+      "Live expert-led sessions",
+      "Advanced Vastu techniques",
+      "Real-world case studies",
+      "1-on-1 mentor guidance",
       "Lifetime community access",
     ],
   },
@@ -147,19 +134,18 @@ export default function Courses() {
 
         {/* Course Cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14 max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {courses.map((course, courseIdx) => {
             const isFeatured = !!course.badge;
+            const isDark = courseIdx === 1;
             const gradients = [
               "linear-gradient(160deg, #FFF8E7 0%, #F5F0E0 100%)",
               "linear-gradient(160deg, #2C1810 0%, #3D2B1F 100%)",
-              "linear-gradient(160deg, #FFF8E7 0%, #F0E8D4 100%)",
             ];
-            const isDark = courseIdx === 1;
             return (
               <motion.article
                 key={course.title}
@@ -169,9 +155,7 @@ export default function Courses() {
                   background: gradients[courseIdx],
                   border: isFeatured
                     ? "2px solid rgba(201,168,76,0.7)"
-                    : isDark
-                      ? "1px solid rgba(201,168,76,0.3)"
-                      : "1px solid rgba(201,168,76,0.25)",
+                    : "1px solid rgba(201,168,76,0.25)",
                   boxShadow: isFeatured
                     ? "0 8px 32px rgba(201,168,76,0.3), 0 2px 8px rgba(44,24,16,0.1)"
                     : "0 2px 12px rgba(44,24,16,0.08)",
@@ -183,14 +167,12 @@ export default function Courses() {
                   style={{
                     background: isFeatured
                       ? "linear-gradient(90deg, #B8860B, #D4AF37, #F0D080, #D4AF37, #B8860B)"
-                      : isDark
-                        ? "linear-gradient(90deg, #C9A84C, #D4AF37)"
-                        : "linear-gradient(90deg, #C9A84C55, #D4AF3788)",
+                      : "linear-gradient(90deg, #C9A84C55, #D4AF3788)",
                   }}
                   aria-hidden="true"
                 />
 
-                {/* Popular badge */}
+                {/* Badge */}
                 {course.badge && (
                   <div className="absolute top-5 right-4 z-10">
                     <span
@@ -208,32 +190,37 @@ export default function Courses() {
                 )}
 
                 <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  {/* Live badge */}
+                  <div className="mb-3">
+                    <span
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold"
+                      style={{
+                        background: isDark
+                          ? "rgba(201,168,76,0.15)"
+                          : "rgba(201,168,76,0.12)",
+                        color: "#C9A84C",
+                        border: "1px solid rgba(201,168,76,0.3)",
+                      }}
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"
+                        aria-hidden="true"
+                      />
+                      Live Classes Only
+                    </span>
+                  </div>
+
                   <h3
                     className={`font-serif text-xl font-bold mb-3 ${isDark ? "text-cream" : "text-brown-text"}`}
                   >
                     {course.title}
                   </h3>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span
-                      className={`text-xl font-bold font-serif tracking-tight ${isDark ? "text-gold" : "text-gold-dark"}`}
-                    >
-                      {course.price}
-                    </span>
-                    <span
-                      className={`text-xs px-2.5 py-1 rounded-full border font-medium ${
-                        isDark
-                          ? "text-cream/70 bg-white/5 border-gold/20"
-                          : "text-brown-light bg-beige border-gold/20"
-                      }`}
-                    >
-                      ↗
-                    </span>
-                  </div>
-                  <div className="mb-6">
+
+                  <div className="mb-5">
                     <span
                       className={`text-xs font-medium ${isDark ? "text-cream/55" : "text-brown-light/70"}`}
                     >
-                      ⏱ {course.priceNote}
+                      {course.priceNote}
                     </span>
                   </div>
 
@@ -276,9 +263,9 @@ export default function Courses() {
                           ? "btn-gold-outline"
                           : "btn-gold-outline"
                     }`}
-                    aria-label={`Enroll in ${course.title}`}
+                    aria-label={`Enquire about ${course.title}`}
                   >
-                    Enroll Now →
+                    Enquire Now →
                   </button>
                 </div>
               </motion.article>

@@ -111,6 +111,19 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-200 group-hover:w-full" />
             </Link>
           </li>
+          <li>
+            <Link
+              to="/vastu-experience-centre"
+              className={`text-sm font-medium transition-colors duration-200 relative group ${
+                location.pathname === "/vastu-experience-centre"
+                  ? "text-gold"
+                  : "text-brown-medium hover:text-gold"
+              }`}
+            >
+              Experience Centre
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-200 group-hover:w-full" />
+            </Link>
+          </li>
         </ul>
 
         {/* CTA + Hamburger */}
@@ -166,6 +179,18 @@ export default function Header() {
                 }`}
               >
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/vastu-experience-centre"
+                className={`block px-4 py-3 rounded-lg font-medium transition-colors duration-200 ${
+                  location.pathname === "/vastu-experience-centre"
+                    ? "text-gold bg-gold/5"
+                    : "text-brown-medium hover:text-gold hover:bg-gold/5"
+                }`}
+              >
+                Experience Centre
               </Link>
             </li>
             <li className="pt-2">
