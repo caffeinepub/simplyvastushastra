@@ -1943,13 +1943,38 @@ export default function VastuExperienceCentrePage() {
   const _ = AnimatePresence;
   void _;
 
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title =
+      "Vastu Experience Centre | Vastu Science Delhi NCR | SimplyVastuShastra";
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const prevDesc = metaDesc?.getAttribute("content") ?? "";
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Discover the science of Vastu Shastra — ancient wisdom proven by modern research. Serving Delhi NCR, Noida, Gurgaon & Uttar Pradesh. Charru Gupta, SimplyVastuShastra.",
+      );
+    }
+
+    const canonicalEl = document.querySelector('link[rel="canonical"]');
+    const prevCanonical = canonicalEl?.getAttribute("href") ?? "";
+    if (canonicalEl) {
+      canonicalEl.setAttribute(
+        "href",
+        "https://simplyvastushastra.com/vastu-experience-centre",
+      );
+    }
+
+    return () => {
+      document.title = prevTitle;
+      if (metaDesc) metaDesc.setAttribute("content", prevDesc);
+      if (canonicalEl) canonicalEl.setAttribute("href", prevCanonical);
+    };
+  }, []);
+
   return (
     <div className="overflow-x-hidden">
-      <title>
-        Vastu Experience Centre | The Science Behind Vastu | SimplyVastuShastra
-        — Charru Gupta
-      </title>
-
       <ParallaxHero />
       <StatsStrip />
       <AncientCodexSection />

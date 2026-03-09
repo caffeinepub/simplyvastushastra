@@ -248,7 +248,7 @@ export default function Hero() {
           style={{ height: "52vw", minHeight: "220px", maxHeight: "340px" }}
         >
           <img
-            src="/assets/uploads/charru-gupta.png"
+            src="/assets/generated/charru-gupta.png"
             alt="Charru Gupta — Vastu Expert & Founder of SimplyVastuShastra"
             className="w-full h-full object-cover"
             style={{ objectPosition: "50% 12%" }}
@@ -333,7 +333,7 @@ export default function Hero() {
               Home &amp; Life
             </span>
             <span className="block text-[1.1rem] font-normal leading-snug mt-1.5 text-brown-medium">
-              with Scientific Vastu Solutions
+              Vastu Consultant in Noida · Delhi NCR · UP
             </span>
           </motion.h1>
 
@@ -498,7 +498,7 @@ export default function Hero() {
                 Home &amp; Life
               </span>
               <span className="block text-[2.4rem] xl:text-[3.2rem] font-normal text-brown-medium leading-snug mt-1">
-                with Scientific Vastu Solutions
+                Vastu Consultant in Noida &amp; Delhi NCR
               </span>
             </motion.h1>
 
@@ -662,7 +662,7 @@ export default function Hero() {
                 }}
               >
                 <img
-                  src="/assets/uploads/charru-gupta.png"
+                  src="/assets/generated/charru-gupta.png"
                   alt="Charru Gupta — Vastu Expert & Founder of SimplyVastuShastra"
                   className="w-full h-full object-cover"
                   style={{ objectPosition: "50% 15%" }}

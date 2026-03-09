@@ -81,8 +81,8 @@ export default function About() {
       <div ref={ref} className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Meet the Expert"
-          headline="Charru Gupta — Your Vastu Expert"
-          lead="Founder of SimplyVastuShastra, transforming spaces & lives since 2017."
+          headline="Charru Gupta — Vastu Consultant in Noida & Delhi NCR"
+          lead="Founder of SimplyVastuShastra, transforming homes & businesses since 2017."
           isInView={isInView}
         />
 
@@ -108,7 +108,7 @@ export default function About() {
               }}
             >
               <img
-                src="/assets/uploads/charru-gupta.png"
+                src="/assets/generated/charru-gupta.png"
                 alt="Charru Gupta — Founder of SimplyVastuShastra, Vastu Expert"
                 className="w-full h-full object-cover object-top"
               />
@@ -156,10 +156,10 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
           >
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-brown-text mb-6 leading-tight">
-              7+ Years of{" "}
-              <span className="text-gold-gradient">Proven Expertise</span>
+              7+ Years as Noida's{" "}
+              <span className="text-gold-gradient">Trusted Vastu Expert</span>
               <br />
-              in Vastu Shastra
+              Across Delhi NCR &amp; UP
             </h2>
 
             {/* Pull-quote — signature design element */}
@@ -214,18 +214,23 @@ export default function About() {
               <p>
                 Charru Gupta is the founder of{" "}
                 <strong className="text-brown-text">SimplyVastuShastra</strong>,
-                a trusted name in scientific Vastu consultation and education
-                across India. With over 7 years of dedicated experience, she has
-                transformed 1000+ homes and businesses into harmonious,
+                the most trusted name in Vastu consultation across{" "}
+                <strong className="text-brown-text">Delhi NCR</strong> — serving
+                Noida, Greater Noida, Gurgaon, Faridabad, Ghaziabad, and all
+                zones of Delhi. With over 7 years of dedicated experience, she
+                has transformed 1000+ homes and businesses into harmonious,
                 prosperous spaces.
               </p>
               <p>
-                What sets Charru apart is her{" "}
+                Clients across{" "}
+                <strong className="text-brown-text">Uttar Pradesh</strong> —
+                from Lucknow and Kanpur to Varanasi and Agra — regularly book
+                online consultations with Charru. Her{" "}
                 <strong className="text-brown-text">
                   practical, no-demolition approach
                 </strong>{" "}
-                — delivering powerful Vastu remedies through simple changes in
-                colors, directions, and placements. No breaking walls, no
+                delivers powerful Vastu remedies through simple changes:
+                colours, directions, and placements. No breaking walls, no
                 expensive renovations.
               </p>
             </div>

@@ -132,7 +132,7 @@ export default function MidPageCTA() {
               className="w-1.5 h-1.5 rounded-full bg-gold animate-glow-pulse"
               aria-hidden="true"
             />
-            Free Energy Assessment
+            Energy Assessment
           </span>
         </motion.div>
 
@@ -152,7 +152,7 @@ export default function MidPageCTA() {
             backgroundClip: "text",
           }}
         >
-          Is Your Home Holding You Back?
+          Is Your Home in Delhi NCR Holding You Back?
         </motion.h2>
 
         {/* Decorative divider */}
@@ -188,8 +188,9 @@ export default function MidPageCTA() {
           className="font-accent italic text-lg sm:text-xl mb-8 max-w-2xl mx-auto"
           style={{ color: "rgba(255,248,231,0.72)" }}
         >
-          A simple Vastu assessment can reveal the hidden energy blocks in your
-          space — and show you exactly how to fix them.
+          A professional Vastu consultation for your home or office in Noida,
+          Delhi, Gurgaon, or anywhere in UP can reveal hidden energy blocks —
+          and show you exactly how to fix them.
         </motion.p>
 
         {/* Trust signal */}

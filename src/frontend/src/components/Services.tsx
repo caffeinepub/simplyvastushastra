@@ -6,9 +6,9 @@ import SectionHeader from "./SectionHeader";
 const services = [
   {
     icon: FaHome,
-    title: "Residential Vastu",
+    title: "Residential Vastu Consultant in Delhi NCR",
     problem: "Is your home feeling stressful or unlucky?",
-    help: "Vastu aligns your living space with natural energies to create a sanctuary of peace, health, and prosperity for your family.",
+    help: "Expert residential Vastu consultation for homes, flats & apartments in Noida, Delhi, Gurgaon, Greater Noida, Ghaziabad & Faridabad. Align your living space with natural energies for peace, health, and prosperity.",
     benefits: [
       "Harmonious family life",
       "Improved health & wealth",
@@ -18,17 +18,17 @@ const services = [
   },
   {
     icon: FaBuilding,
-    title: "Commercial & Office Vastu",
+    title: "Commercial Vastu Consultant in Noida",
     problem: "Struggling with business stagnation?",
-    help: "Transform your workplace into a powerhouse of productivity and success by harmonizing the energy of your commercial space.",
+    help: "Transform your office or commercial space in Noida, Delhi NCR into a powerhouse of productivity. Expert commercial Vastu for businesses, shops, showrooms, and offices across Delhi NCR.",
     benefits: ["Business growth", "Team productivity", "Financial prosperity"],
     accentColor: "#D4AF37",
   },
   {
     icon: FaIndustry,
-    title: "Industrial Vastu",
-    problem: "Facing operational challenges?",
-    help: "Optimize your industrial setup with Vastu principles to ensure smooth workflows, worker safety, and increased output.",
+    title: "Industrial Vastu Expert in Uttar Pradesh",
+    problem: "Facing operational challenges in your factory?",
+    help: "Specialized industrial Vastu consultation for factories, warehouses, and manufacturing units across Uttar Pradesh and Delhi NCR. Ensure smooth workflows, worker harmony, and increased output.",
     benefits: ["Smooth operations", "Worker safety", "Increased output"],
     accentColor: "#B8860B",
   },
@@ -75,9 +75,9 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Our Services"
-          headline="Vastu Consultation Services"
-          lead="Ancient guidance refined for every modern space."
-          subtitle="Tailored solutions for homes, offices, industries and more."
+          headline="Vastu Consultation in Delhi NCR & UP"
+          lead="Expert Vastu for Noida, Delhi, Gurgaon, Ghaziabad & all of UP."
+          subtitle="Residential, Commercial & Industrial Vastu — tailored for your space."
           isInView={isInView}
         />
 

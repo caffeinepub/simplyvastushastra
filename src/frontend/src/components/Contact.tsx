@@ -11,8 +11,11 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { toast } from "sonner";
-import { useActor } from "../hooks/useActor";
 import SectionHeader from "./SectionHeader";
+
+// Formspree endpoint — replace XXXXXXXX with your actual Formspree form ID
+// Sign up free at https://formspree.io and create a form pointed at charrugupta10@gmail.com
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdalppy";
 
 const services = [
   "Residential Vastu",
@@ -61,7 +64,6 @@ function validateForm(form: FormState): FormErrors {
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const { actor } = useActor();
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -92,14 +94,21 @@ export default function Contact() {
 
     setSubmitting(true);
     try {
-      if (!actor) throw new Error("Not connected");
-      await actor.submitForm(
-        form.name,
-        form.email,
-        form.phone,
-        form.serviceInterest,
-        form.message,
-      );
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          serviceInterest: form.serviceInterest,
+          message: form.message,
+        }),
+      });
+      if (!response.ok) throw new Error("Submission failed");
       setSubmitted(true);
       setForm(initialForm);
       toast.success("Message sent! We'll contact you soon.");
@@ -151,9 +160,9 @@ export default function Contact() {
       <div ref={ref} className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           eyebrow="Get In Touch"
-          headline="Book Your Consultation Today"
-          lead="Your transformation begins with a single conversation."
-          subtitle="Take the first step towards a harmonious home and life."
+          headline="Book Vastu Consultation in Delhi NCR"
+          lead="Serving Noida, Delhi, Gurgaon, Ghaziabad, Greater Noida & all of UP."
+          subtitle="Take the first step towards a harmonious, prosperous home or office."
           isInView={isInView}
           light={true}
         />
@@ -620,10 +629,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-cream/60 text-xs uppercase tracking-wide mb-0.5">
-                    Location
+                    Serving
                   </p>
                   <p className="text-cream font-semibold text-sm">
-                    India (Online &amp; In-Person)
+                    Noida · Delhi · Gurgaon · Ghaziabad · Faridabad · Greater
+                    Noida · All of UP
                   </p>
                 </div>
               </div>
@@ -636,9 +646,21 @@ export default function Contact() {
               </p>
               <div className="flex gap-3" aria-label="Social media links">
                 {[
-                  { Icon: FaInstagram, label: "Instagram", href: "#" },
-                  { Icon: FaYoutube, label: "YouTube", href: "#" },
-                  { Icon: FaFacebook, label: "Facebook", href: "#" },
+                  {
+                    Icon: FaInstagram,
+                    label: "Instagram",
+                    href: "https://www.instagram.com/charrugupta_official",
+                  },
+                  {
+                    Icon: FaYoutube,
+                    label: "YouTube",
+                    href: "https://www.youtube.com/channel/UCwwCrDePJusBqQlX7bnGCAQ",
+                  },
+                  {
+                    Icon: FaFacebook,
+                    label: "Facebook",
+                    href: "https://www.facebook.com/charru.gupta.94/",
+                  },
                   {
                     Icon: FaWhatsapp,
                     label: "WhatsApp",

@@ -29,7 +29,7 @@ function injectBlogPostJsonLd(post: (typeof BLOG_POSTS)[0]) {
       url: "https://simplyvastushastra.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://simplyvastushastra.com/assets/uploads/Black-and-Gold-Classy-Minimalist-Circular-Name-Logo-1.png",
+        url: "https://simplyvastushastra.com/assets/generated/logo-charru-gupta.png",
       },
     },
     mainEntityOfPage: {
@@ -355,7 +355,7 @@ export default function BlogPostPage() {
         >
           <div className="flex items-start gap-4">
             <img
-              src="/assets/uploads/Black-and-Gold-Classy-Minimalist-Circular-Name-Logo-1.png"
+              src="/assets/generated/logo-charru-gupta.png"
               alt="Charru Gupta"
               className="w-14 h-14 rounded-full object-cover border-2"
               style={{ borderColor: "#C9A84C" }}

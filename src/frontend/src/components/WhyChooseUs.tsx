@@ -178,13 +178,13 @@ export default function WhyChooseUs() {
               backgroundClip: "text",
             }}
           >
-            Why Choose SimplyVastuShastra?
+            Why Delhi NCR Trusts SimplyVastuShastra
           </h2>
           <p
             className="font-accent text-xl italic max-w-lg mx-auto"
             style={{ color: "rgba(255,248,231,0.6)" }}
           >
-            Practical. Scientific. Life-changing.
+            Noida's most practical, scientific &amp; life-changing Vastu expert.
           </p>
         </motion.div>
 

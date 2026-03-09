@@ -51,14 +51,14 @@ export default function BlogsPage() {
   useEffect(() => {
     const prevTitle = document.title;
     document.title =
-      "Vastu Blog | Expert Vastu Tips for Noida, Delhi, Gurgaon | SimplyVastuShastra";
+      "Vastu Blog | Tips for Delhi NCR & UP | SimplyVastuShastra";
 
     const metaDesc = document.querySelector('meta[name="description"]');
     const prevDesc = metaDesc?.getAttribute("content") ?? "";
     if (metaDesc) {
       metaDesc.setAttribute(
         "content",
-        "Expert Vastu Shastra articles by Charru Gupta, Best Vastu Consultant in Noida, Delhi, Gurgaon & NCR — tips for home, office, wealth, relationships, and remedies without demolition. Updated regularly.",
+        "Vastu tips for Noida, Delhi, Gurgaon, Ghaziabad, Greater Noida & UP by Charru Gupta. Expert guides on home Vastu, office Vastu, wealth & remedies. Updated regularly.",
       );
     }
 
@@ -183,12 +183,14 @@ export default function BlogsPage() {
               Vastu Blog —
               <br />
               <span className="text-gold-gradient">
-                Insights, Tips & Expert Guides
+                Tips for Delhi NCR &amp; UP
               </span>
             </h1>
             <p className="text-brown-medium text-lg md:text-xl font-accent italic max-w-2xl mt-4">
-              Practical Vastu wisdom from Charru Gupta — updated regularly to
-              help you transform your home, office, and life.
+              Expert Vastu guidance by Charru Gupta, Noida's trusted Vastu
+              consultant — practical tips for homes &amp; businesses in Noida,
+              Delhi, Gurgaon, Ghaziabad, Greater Noida &amp; across Uttar
+              Pradesh.
             </p>
           </motion.div>
 

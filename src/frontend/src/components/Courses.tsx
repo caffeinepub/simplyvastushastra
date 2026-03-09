@@ -90,9 +90,9 @@ export default function Courses() {
 
       <div ref={ref} className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          eyebrow="Certified Courses"
-          headline="Learn Vastu from the Expert"
-          lead="From first principles to professional practice."
+          eyebrow="Certified Vastu Courses"
+          headline="Learn Vastu from Delhi NCR's Top Expert"
+          lead="Live online classes — join students from Noida, Delhi, UP & across India."
           subtitle="Beginner to advanced — join 3000+ certified students."
           isInView={isInView}
         />

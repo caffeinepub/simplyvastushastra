@@ -4,34 +4,52 @@ import { FaFacebook, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 const anchorLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
   { href: "#courses", label: "Courses" },
   { href: "#contact", label: "Contact" },
 ];
 
-const serviceLinks = [
-  "Residential Vastu",
-  "Commercial Vastu",
-  "Industrial Vastu",
-  "Foundation Vastu Course",
-  "Advanced Vastu Course",
+const servicePageLinks = [
+  { slug: "online-vastu-consultation", label: "Online Vastu Consultation" },
+  { slug: "home-vastu-consultation", label: "Home Vastu Consultation" },
+  { slug: "office-vastu-consultation", label: "Office Vastu Consultation" },
+  {
+    slug: "industrial-vastu-consultation",
+    label: "Industrial Vastu Consultation",
+  },
+];
+
+const courseScrolls = ["Foundation Vastu Course", "Advanced Vastu Course"];
+
+const cityLinks = [
+  { label: "Noida", slug: "noida" },
+  { label: "Delhi", slug: "delhi" },
+  { label: "Gurgaon", slug: "gurgaon" },
+  { label: "Greater Noida", slug: "greater-noida" },
+  { label: "Ghaziabad", slug: "ghaziabad" },
+  { label: "Faridabad", slug: "faridabad" },
+  { label: "Dwarka", slug: "dwarka" },
+  { label: "Rohini", slug: "rohini" },
+  { label: "Lucknow", slug: "lucknow" },
+  { label: "Kanpur", slug: "kanpur" },
+  { label: "Varanasi", slug: "varanasi" },
+  { label: "Noida Extension", slug: "noida-extension" },
 ];
 
 const socialLinks = [
   {
     Icon: FaInstagram,
     label: "Instagram",
-    href: "https://www.instagram.com/simplyvastushastra",
+    href: "https://www.instagram.com/charrugupta_official",
   },
   {
     Icon: FaYoutube,
     label: "YouTube",
-    href: "https://www.youtube.com/@simplyvastushastra",
+    href: "https://www.youtube.com/channel/UCwwCrDePJusBqQlX7bnGCAQ",
   },
   {
     Icon: FaFacebook,
     label: "Facebook",
-    href: "https://www.facebook.com/simplyvastushastra",
+    href: "https://www.facebook.com/charru.gupta.94/",
   },
   { Icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919871718653" },
 ];
@@ -73,10 +91,11 @@ export default function Footer() {
             ॐ
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-cream mb-3">
-            Ready to Transform Your Space?
+            Book Your Vastu Consultation in Delhi NCR
           </h2>
           <p className="font-accent italic text-cream/70 text-xl mb-8">
-            Begin your journey to harmony, health, and prosperity today.
+            Serving Noida, Delhi, Gurgaon, Ghaziabad, Greater Noida, Faridabad
+            &amp; all of UP.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -87,6 +106,7 @@ export default function Footer() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="btn-gold-shimmer px-10 py-4 rounded-full text-base font-bold shadow-lg"
+              data-ocid="footer.primary_button"
             >
               Book Your Consultation
             </button>
@@ -95,6 +115,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-gold/40 text-gold hover:bg-gold/10 transition-all duration-300 font-semibold text-sm"
+              data-ocid="footer.secondary_button"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -121,7 +142,7 @@ export default function Footer() {
           aria-hidden="true"
         />
 
-        {/* As Featured In / Trusted By strip */}
+        {/* As Featured In strip */}
         <div
           className="border-b"
           style={{ borderColor: "rgba(201,168,76,0.1)" }}
@@ -134,14 +155,7 @@ export default function Footer() {
               As Seen In &amp; Trusted By
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-              {[
-                "Economic Times",
-                "Times of India",
-                "Hindustan Times",
-                "Navbharat Times",
-                "India Today",
-                "Dainik Bhaskar",
-              ].map((pub) => (
+              {["ABP News", "Midday", "Outlook", "News Nation"].map((pub) => (
                 <span key={pub} className="press-badge">
                   {pub}
                 </span>
@@ -151,10 +165,10 @@ export default function Footer() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
-          {/* Top section */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            {/* Brand column */}
-            <div className="md:col-span-1">
+          {/* Top section — 5 columns */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6 mb-12">
+            {/* Brand column — spans 2 on mobile */}
+            <div className="col-span-2 md:col-span-1">
               <Link to="/" className="flex items-center gap-2 mb-4">
                 <span
                   className="text-gold text-3xl font-serif"
@@ -221,6 +235,17 @@ export default function Footer() {
                     Vastu Experience Centre
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/areas-we-serve"
+                    className="text-brown-light hover:text-gold text-sm transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <span className="text-gold/40 text-xs" aria-hidden="true">
+                      ›
+                    </span>
+                    Areas We Serve
+                  </Link>
+                </li>
               </ul>
             </nav>
 
@@ -230,18 +255,55 @@ export default function Footer() {
                 Services
               </h3>
               <ul className="space-y-2.5">
-                {serviceLinks.map((service) => (
-                  <li key={service}>
-                    <button
-                      type="button"
-                      onClick={() => handleAnchorClick("#services")}
+                {servicePageLinks.map(({ slug, label }) => (
+                  <li key={slug}>
+                    <Link
+                      to="/services/$slug"
+                      params={{ slug }}
                       className="text-brown-light hover:text-gold text-sm transition-colors duration-200 flex items-center gap-2"
                     >
                       <span className="text-gold/40 text-xs" aria-hidden="true">
                         ›
                       </span>
-                      {service}
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+                {courseScrolls.map((course) => (
+                  <li key={course}>
+                    <button
+                      type="button"
+                      onClick={() => handleAnchorClick("#courses")}
+                      className="text-brown-light hover:text-gold text-sm transition-colors duration-200 flex items-center gap-2"
+                    >
+                      <span className="text-gold/40 text-xs" aria-hidden="true">
+                        ›
+                      </span>
+                      {course}
                     </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Service Areas */}
+            <nav aria-label="Service areas">
+              <h3 className="font-serif text-cream font-bold mb-5 text-sm uppercase tracking-wider">
+                Service Areas
+              </h3>
+              <ul className="space-y-2">
+                {cityLinks.map(({ label, slug }) => (
+                  <li key={slug}>
+                    <Link
+                      to="/vastu-consultant/$slug"
+                      params={{ slug }}
+                      className="text-brown-light hover:text-gold text-sm transition-colors duration-200 flex items-center gap-2"
+                    >
+                      <span className="text-gold/40 text-xs" aria-hidden="true">
+                        ›
+                      </span>
+                      {label}
+                    </Link>
                   </li>
                 ))}
               </ul>
