@@ -1,38 +1,40 @@
-# SimplyVastuShastra — Vastu Experience Centre Premium Overhaul
+# SimplyVastuShastra
 
 ## Current State
-The `/vastu-experience-centre` page exists with these sections: ParallaxHero, StatsStrip, StorySection (timeline), ScienceSection (myth vs science cards), WhatVastuIsSection (4 principles), TransformationStories (3 case studies), FinalCTA. The design is functional but not world-class. It uses emoji icons, basic card layouts, and lacks the immersive, editorial luxury feel worthy of the best Vastu experience in the world. The data is factually sound.
+The site is a single-page app (SPA) with all sections (Hero, About, Services, Courses, WhyChooseUs, Testimonials, Blog, Contact, etc.) on the homepage. Separate pages exist for: /blogs, /blogs/:slug, /vastu-experience-centre, /services/:slug (4 service types), /vastu-consultant/:slug (city pages), /areas-we-serve.
+
+The Services dropdown in the Header currently shows 4 services: Online Vastu Consultation, Home Vastu Consultation, Office Vastu Consultation, Industrial Vastu Consultation.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Cinematic full-bleed section with ambient video-like animated background for the hero
-- "The Ancient Codex" section — large typographic pull-quote moments with Sanskrit text and translations
-- Immersive "Direction Energy Map" interactive visual — an animated octagonal Vastu Purusha Mandala graphic
-- "Meet Your Guide" bridge section — Charru Gupta introduction with credential strip
-- Premium floating nav pills for section jumping inside the Experience Centre
-- Dramatic chapter-title transitions between sections (numbered, editorial)
-- Rich animated particle/star fields and parallax depth layers
-- World-class typography — Fraunces for display, General Sans for body
-- Animated number counters using Intersection Observer
+- `/about` — standalone About page (uses About component content, full page with hero banner)
+- `/services` — standalone Services overview page (3 services only: Residential, Commercial, Industrial)
+- `/services/residential-vastu` — dedicated Residential Vastu page
+- `/services/commercial-vastu` — dedicated Commercial Vastu page  
+- `/services/industrial-vastu` — dedicated Industrial Vastu page
+- `/courses` — standalone Courses page (uses Courses component content, full page)
+- `/contact` — standalone Contact page (uses Contact component content, full page)
 
 ### Modify
-- Hero: Full viewport cinematic immersion, layered parallax Om watermark + mandala, dramatic gold gradient text animation, ambient glow rings with stagger
-- Stats Strip: Transform into floating cards with depth shadows and count-up numbers
-- Timeline section: Redesign with large editorial chapter numbers, full-bleed alternating image-and-text layout style
-- Science cards: Full redesign with split-screen Myth/Science layout, dramatic reveal animations, no emoji — use SVG icons
-- Principles: Redesign as large "codex pages" with illustrated borders and key Sanskrit terms
-- Transformation stories: Before/After redesign with dramatic visual contrast treatment
-- Final CTA: Cinematic dark gold section with floating particles and mandala motif
+- Header: Change all anchor-scroll nav links to real page routes:
+  - About → /about
+  - Services dropdown → only 3 services: Residential (/services/residential-vastu), Commercial (/services/commercial-vastu), Industrial (/services/industrial-vastu)
+  - Courses → /courses
+  - Contact → /contact (also update Book Consultation CTA button)
+- Services component: Update "Book Now" buttons to link to /contact
+- Header mobile menu: Same routing changes
+- Remove "Online Vastu Consultation" from SERVICE_LINKS (only Residential, Commercial, Industrial remain)
 
 ### Remove
-- All emoji icons from content sections (replace with SVG or pure CSS)
-- Generic rounded-2xl/white card aesthetic throughout
-- Flat colour backgrounds — replace all with rich layered gradients
+- Old service slugs: online-vastu-consultation, home-vastu-consultation, office-vastu-consultation, industrial-vastu-consultation from the dropdown (replace with residential-vastu, commercial-vastu, industrial-vastu)
 
 ## Implementation Plan
-1. Generate 2 hero images for the Experience Centre (ambient Vastu architecture visual)
-2. Rebuild entire VastuExperienceCentrePage.tsx with all new sections and premium design
-3. Ensure correct factual data throughout (6000 BCE origin, science explanations, case studies)
-4. Add Fraunces + General Sans fonts properly via @font-face if not already present
-5. Verify all links, WhatsApp number, and CTAs are correct
+1. Create AboutPage.tsx wrapping the About component with a page hero banner
+2. Create ServicesPage.tsx as standalone page with all 3 services
+3. Create individual service pages: ResidentialVastuPage.tsx, CommercialVastuPage.tsx, IndustrialVastuPage.tsx  
+4. Create CoursesPage.tsx wrapping the Courses component
+5. Create ContactPage.tsx wrapping the Contact component
+6. Update router.tsx to add all new routes
+7. Update Header.tsx SERVICE_LINKS and change nav links from anchor-scroll to page routes
+8. Keep homepage as-is with all sections intact for SEO

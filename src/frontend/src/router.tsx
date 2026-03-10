@@ -23,12 +23,19 @@ import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import WhyChooseUs from "./components/WhyChooseUs";
 import YouTubeCarousel from "./components/YouTubeCarousel";
+import AboutPage from "./pages/AboutPage";
 import AreasWeServePage from "./pages/AreasWeServePage";
 import BlogPostPage from "./pages/BlogPostPage";
 import BlogsPage from "./pages/BlogsPage";
 import CityPage from "./pages/CityPage";
+import ContactPage from "./pages/ContactPage";
+import CoursesPage from "./pages/CoursesPage";
 import ServicePage from "./pages/ServicePage";
+import ServicesPage from "./pages/ServicesPage";
 import VastuExperienceCentrePage from "./pages/VastuExperienceCentrePage";
+import CommercialVastuPage from "./pages/services/CommercialVastuPage";
+import IndustrialVastuPage from "./pages/services/IndustrialVastuPage";
+import ResidentialVastuPage from "./pages/services/ResidentialVastuPage";
 
 function HomePage() {
   return (
@@ -82,6 +89,48 @@ const indexRoute = createRoute({
   component: HomePage,
 });
 
+const aboutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/about",
+  component: AboutPage,
+});
+
+const servicesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services",
+  component: ServicesPage,
+});
+
+const residentialVastuRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/residential-vastu",
+  component: ResidentialVastuPage,
+});
+
+const commercialVastuRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/commercial-vastu",
+  component: CommercialVastuPage,
+});
+
+const industrialVastuRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/services/industrial-vastu",
+  component: IndustrialVastuPage,
+});
+
+const coursesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/courses",
+  component: CoursesPage,
+});
+
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/contact",
+  component: ContactPage,
+});
+
 const blogsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/blogs",
@@ -100,6 +149,7 @@ const vastuExperienceCentreRoute = createRoute({
   component: VastuExperienceCentrePage,
 });
 
+// Keep old service page route for backward compat
 const servicePageRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/services/$slug",
@@ -120,6 +170,13 @@ const areasWeServeRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
+  aboutRoute,
+  servicesRoute,
+  residentialVastuRoute,
+  commercialVastuRoute,
+  industrialVastuRoute,
+  coursesRoute,
+  contactRoute,
   blogsRoute,
   blogPostRoute,
   vastuExperienceCentreRoute,
