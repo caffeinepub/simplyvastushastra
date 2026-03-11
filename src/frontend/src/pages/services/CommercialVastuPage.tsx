@@ -19,7 +19,7 @@ const steps = [
   },
   {
     step: "Premises Assessment",
-    desc: "On-site Vastu survey of your office, shop, or commercial space \u2014 covering entrance direction, workstation layout, and energy zones.",
+    desc: "On-site Vastu survey of your office, shop, or commercial space — covering entrance direction, workstation layout, and energy zones.",
     num: 2,
   },
   {
@@ -29,7 +29,7 @@ const steps = [
   },
   {
     step: "Business Remedy Report",
-    desc: "Detailed report with actionable remedies for every area \u2014 from reception desk to MD cabin, cash counter to conference room.",
+    desc: "Detailed report with actionable remedies for every area — from reception desk to MD cabin, cash counter to conference room.",
     num: 4,
   },
   {
@@ -46,11 +46,11 @@ const faqs = [
   },
   {
     q: "Does Vastu apply to small shops and retail outlets?",
-    a: "Absolutely. Vastu principles apply to businesses of all sizes \u2014 from small shops to large corporate offices. The principles scale with the space.",
+    a: "Absolutely. Vastu principles apply to businesses of all sizes — from small shops to large corporate offices. The principles scale with the space.",
   },
   {
     q: "Can you do commercial Vastu without renovation?",
-    a: "Yes, most commercial Vastu remedies can be implemented without structural changes \u2014 through furniture placement, colours, elements, and energy-correcting techniques.",
+    a: "Yes, most commercial Vastu remedies can be implemented without structural changes — through furniture placement, colours, elements, and energy-correcting techniques.",
   },
   {
     q: "Which areas in Delhi NCR do you serve for commercial Vastu?",
@@ -80,12 +80,6 @@ export default function CommercialVastuPage() {
             "linear-gradient(135deg, #2C1810 0%, #3D2314 50%, #2C1810 100%)",
         }}
       >
-        <span
-          className="text-4xl text-gold font-serif block mb-4"
-          aria-hidden="true"
-        >
-          \u0950
-        </span>
         <h1 className="font-serif text-3xl md:text-5xl font-bold text-cream mb-4">
           Commercial Vastu Consultation
         </h1>
@@ -126,7 +120,7 @@ export default function CommercialVastuPage() {
             Vastu for Business Success
           </h2>
           <p className="text-brown-medium leading-relaxed mb-4">
-            Every successful business needs the right foundation \u2014 and that
+            Every successful business needs the right foundation — and that
             includes the energy of its physical space. Commercial Vastu Shastra
             applies ancient spatial wisdom to modern business environments:
             offices, shops, showrooms, clinics, restaurants, and corporate
@@ -134,7 +128,7 @@ export default function CommercialVastuPage() {
           </p>
           <p className="text-brown-medium leading-relaxed">
             Charru Gupta has consulted for businesses across Delhi NCR, Noida,
-            Gurgaon, and Uttar Pradesh \u2014 from startups to established
+            Gurgaon, and Uttar Pradesh — from startups to established
             enterprises. Her commercial Vastu assessments identify energy blocks
             causing stagnation and prescribe precise, practical remedies to
             unlock growth.
@@ -158,9 +152,11 @@ export default function CommercialVastuPage() {
                 transition={{ duration: 0.5 }}
                 className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gold/20"
               >
-                <span className="text-gold text-lg mt-0.5" aria-hidden="true">
-                  \u2726
-                </span>
+                <div
+                  className="w-2 h-2 rounded-full flex-shrink-0 mt-2"
+                  style={{ background: "#C9A84C" }}
+                  aria-hidden="true"
+                />
                 <span className="text-brown-medium">{benefit}</span>
               </motion.div>
             ))}

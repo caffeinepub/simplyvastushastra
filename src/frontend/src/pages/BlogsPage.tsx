@@ -401,6 +401,10 @@ function BlogCard({ post }: { post: BlogPost }) {
           alt={post.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src =
+              "/assets/generated/blog-vastu-tips.dim_800x480.jpg";
+          }}
         />
         <div
           className="absolute inset-0"

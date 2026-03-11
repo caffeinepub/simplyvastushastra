@@ -9,13 +9,9 @@ const anchorLinks = [
 ];
 
 const servicePageLinks = [
-  { slug: "online-vastu-consultation", label: "Online Vastu Consultation" },
-  { slug: "home-vastu-consultation", label: "Home Vastu Consultation" },
-  { slug: "office-vastu-consultation", label: "Office Vastu Consultation" },
-  {
-    slug: "industrial-vastu-consultation",
-    label: "Industrial Vastu Consultation",
-  },
+  { slug: "residential-vastu", label: "Residential Vastu" },
+  { slug: "commercial-vastu", label: "Commercial Vastu" },
+  { slug: "industrial-vastu", label: "Industrial Vastu" },
 ];
 
 const courseScrolls = ["Foundation Vastu Course", "Advanced Vastu Course"];
@@ -288,9 +284,12 @@ export default function Footer() {
 
             {/* Service Areas */}
             <nav aria-label="Service areas">
-              <h3 className="font-serif text-cream font-bold mb-5 text-sm uppercase tracking-wider">
+              <h3 className="font-serif text-cream font-bold mb-3 text-sm uppercase tracking-wider">
                 Service Areas
               </h3>
+              <p className="text-gold/60 text-xs mb-4 leading-relaxed">
+                Residential, Commercial &amp; Industrial Vastu
+              </p>
               <ul className="space-y-2">
                 {cityLinks.map(({ label, slug }) => (
                   <li key={slug}>

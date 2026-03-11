@@ -80,12 +80,6 @@ export default function IndustrialVastuPage() {
             "linear-gradient(135deg, #2C1810 0%, #3D2314 50%, #2C1810 100%)",
         }}
       >
-        <span
-          className="text-4xl text-gold font-serif block mb-4"
-          aria-hidden="true"
-        >
-          \u0950
-        </span>
         <h1 className="font-serif text-3xl md:text-5xl font-bold text-cream mb-4">
           Industrial Vastu Consultation
         </h1>
@@ -158,9 +152,11 @@ export default function IndustrialVastuPage() {
                 transition={{ duration: 0.5 }}
                 className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gold/20"
               >
-                <span className="text-gold text-lg mt-0.5" aria-hidden="true">
-                  \u2726
-                </span>
+                <div
+                  className="w-2 h-2 rounded-full flex-shrink-0 mt-2"
+                  style={{ background: "#C9A84C" }}
+                  aria-hidden="true"
+                />
                 <span className="text-brown-medium">{benefit}</span>
               </motion.div>
             ))}
@@ -240,7 +236,8 @@ export default function IndustrialVastuPage() {
         </h2>
         <p className="text-gold/80 mb-8 max-w-xl mx-auto">
           Book your industrial Vastu consultation with Charru Gupta. Expert
-          guidance for factories, plants, and warehouses across Delhi NCR & UP.
+          guidance for factories, plants, and warehouses across Delhi NCR &amp;
+          UP.
         </p>
         <Link
           to="/contact"

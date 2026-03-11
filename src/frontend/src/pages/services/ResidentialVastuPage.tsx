@@ -24,7 +24,7 @@ const steps = [
   },
   {
     step: "Vastu Analysis",
-    desc: "Deep analysis of the five elements \u2014 Earth, Water, Fire, Air, Space \u2014 and their balance in your home.",
+    desc: "Deep analysis of the five elements — Earth, Water, Fire, Air, Space — and their balance in your home.",
     num: 3,
   },
   {
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "How long does a residential Vastu consultation take?",
-    a: "An on-site visit typically takes 2\u20133 hours. The detailed report is delivered within 3\u20135 working days.",
+    a: "An on-site visit typically takes 2–3 hours. The detailed report is delivered within 3–5 working days.",
   },
   {
     q: "Is Vastu consultation available for rented homes?",
@@ -80,12 +80,6 @@ export default function ResidentialVastuPage() {
             "linear-gradient(135deg, #2C1810 0%, #3D2314 50%, #2C1810 100%)",
         }}
       >
-        <span
-          className="text-4xl text-gold font-serif block mb-4"
-          aria-hidden="true"
-        >
-          \u0950
-        </span>
         <h1 className="font-serif text-3xl md:text-5xl font-bold text-cream mb-4">
           Residential Vastu Consultation
         </h1>
@@ -126,11 +120,11 @@ export default function ResidentialVastuPage() {
             Why Residential Vastu Matters
           </h2>
           <p className="text-brown-medium leading-relaxed mb-4">
-            Your home is more than a physical space \u2014 it is the container
-            for your family's energy, relationships, health, and prosperity.
-            Vastu Shastra, the ancient Indian science of architecture and
-            spatial harmony, provides time-tested principles to align your home
-            with the natural forces of the universe.
+            Your home is more than a physical space — it is the container for
+            your family's energy, relationships, health, and prosperity. Vastu
+            Shastra, the ancient Indian science of architecture and spatial
+            harmony, provides time-tested principles to align your home with the
+            natural forces of the universe.
           </p>
           <p className="text-brown-medium leading-relaxed">
             Charru Gupta brings 7+ years of expertise in residential Vastu
@@ -158,9 +152,11 @@ export default function ResidentialVastuPage() {
                 transition={{ duration: 0.5 }}
                 className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gold/20"
               >
-                <span className="text-gold text-lg mt-0.5" aria-hidden="true">
-                  \u2726
-                </span>
+                <div
+                  className="w-2 h-2 rounded-full flex-shrink-0 mt-2"
+                  style={{ background: "#C9A84C" }}
+                  aria-hidden="true"
+                />
                 <span className="text-brown-medium">{benefit}</span>
               </motion.div>
             ))}
@@ -240,7 +236,7 @@ export default function ResidentialVastuPage() {
         </h2>
         <p className="text-gold/80 mb-8 max-w-xl mx-auto">
           Book your residential Vastu consultation with Charru Gupta today.
-          Serving Delhi NCR & Uttar Pradesh.
+          Serving Delhi NCR &amp; Uttar Pradesh.
         </p>
         <Link
           to="/contact"

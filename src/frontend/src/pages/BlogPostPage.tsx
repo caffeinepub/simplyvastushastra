@@ -165,6 +165,10 @@ export default function BlogPostPage() {
           src={post.coverImage}
           alt={post.title}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src =
+              "/assets/generated/blog-vastu-tips.dim_800x480.jpg";
+          }}
         />
         <div
           className="absolute inset-0"
