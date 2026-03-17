@@ -2,10 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { BLOG_POSTS, type BlogPost } from "../data/blogPosts";
+import { getCmsBlogPosts } from "../data/cmsBlogPosts";
 
 const ALL_CATEGORY = "All";
 
-function injectBlogsJsonLd() {
+function injectBlogsJsonLd(posts: BlogPost[]) {
   const existing = document.getElementById("blogs-jsonld");
   if (existing) existing.remove();
 
@@ -19,8 +20,8 @@ function injectBlogsJsonLd() {
     description:
       "Expert Vastu Shastra articles, tips, and guides by Charru Gupta",
     url: "https://simplyvastushastra.com/blogs",
-    numberOfItems: BLOG_POSTS.length,
-    itemListElement: BLOG_POSTS.map((post, index) => ({
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, index) => ({
       "@type": "ListItem",
       position: index + 1,
       url: `https://simplyvastushastra.com/blogs/${post.slug}`,
@@ -47,6 +48,8 @@ export default function BlogsPage() {
   const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const allPosts = useMemo(() => [...BLOG_POSTS, ...getCmsBlogPosts()], []);
+
   // SEO setup
   useEffect(() => {
     const prevTitle = document.title;
@@ -68,7 +71,7 @@ export default function BlogsPage() {
       canonicalEl.setAttribute("href", "https://simplyvastushastra.com/blogs");
     }
 
-    injectBlogsJsonLd();
+    injectBlogsJsonLd(allPosts);
 
     return () => {
       document.title = prevTitle;
@@ -77,7 +80,7 @@ export default function BlogsPage() {
       const script = document.getElementById("blogs-jsonld");
       if (script) script.remove();
     };
-  }, []);
+  }, [allPosts]);
 
   // Scroll to top on mount
   useEffect(() => {
@@ -85,12 +88,12 @@ export default function BlogsPage() {
   }, []);
 
   const categories = useMemo(() => {
-    const cats = Array.from(new Set(BLOG_POSTS.map((p) => p.category)));
+    const cats = Array.from(new Set(allPosts.map((p) => p.category)));
     return [ALL_CATEGORY, ...cats];
-  }, []);
+  }, [allPosts]);
 
   const filteredPosts = useMemo(() => {
-    return BLOG_POSTS.filter((post) => {
+    return allPosts.filter((post) => {
       const matchesCategory =
         activeCategory === ALL_CATEGORY || post.category === activeCategory;
       const q = searchQuery.toLowerCase();
@@ -101,7 +104,7 @@ export default function BlogsPage() {
         post.category.toLowerCase().includes(q);
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [allPosts, activeCategory, searchQuery]);
 
   return (
     <div

@@ -1,7 +1,10 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useEffect, useMemo } from "react";
+import CmsBlogRenderer from "../components/CmsBlogRenderer";
 import { BLOG_POSTS } from "../data/blogPosts";
+import type { ExtendedBlogPost } from "../data/blogPostsExtended";
+import { getCmsBlogPosts } from "../data/cmsBlogPosts";
 
 function injectBlogPostJsonLd(post: (typeof BLOG_POSTS)[0]) {
   const existing = document.getElementById("blogpost-jsonld");
@@ -47,16 +50,23 @@ export default function BlogPostPage() {
   const params = useParams({ strict: false }) as { slug?: string };
   const slug = params.slug;
   const post = useMemo(
-    () => BLOG_POSTS.find((p) => p.slug === slug) ?? null,
+    () =>
+      ([...BLOG_POSTS, ...getCmsBlogPosts()] as ExtendedBlogPost[]).find(
+        (p) => p.slug === slug,
+      ) ?? null,
     [slug],
   );
 
   const relatedPosts = useMemo(() => {
     if (!post) return [];
-    const sameCat = BLOG_POSTS.filter(
+    const allPosts = [
+      ...BLOG_POSTS,
+      ...getCmsBlogPosts(),
+    ] as ExtendedBlogPost[];
+    const sameCat = allPosts.filter(
       (p) => p.slug !== post.slug && p.category === post.category,
     );
-    const others = BLOG_POSTS.filter(
+    const others = allPosts.filter(
       (p) => p.slug !== post.slug && p.category !== post.category,
     );
     const combined = [...sameCat, ...others];
@@ -67,8 +77,13 @@ export default function BlogPostPage() {
   useEffect(() => {
     if (!post) return;
 
+    const extPost = post as ExtendedBlogPost;
+
     const prevTitle = document.title;
-    document.title = `${post.title} | SimplyVastuShastra`;
+    document.title =
+      extPost._isCms && extPost._metaTitle
+        ? extPost._metaTitle
+        : `${post.title} | SimplyVastuShastra`;
 
     const metaDesc = document.querySelector('meta[name="description"]');
     const prevDesc = metaDesc?.getAttribute("content") ?? "";
@@ -79,7 +94,9 @@ export default function BlogPostPage() {
     if (canonicalEl) {
       canonicalEl.setAttribute(
         "href",
-        `https://simplyvastushastra.com/blogs/${post.slug}`,
+        extPost._isCms && extPost._canonicalUrl
+          ? extPost._canonicalUrl
+          : `https://simplyvastushastra.com/blogs/${post.slug}`,
       );
     }
 
@@ -104,7 +121,9 @@ export default function BlogPostPage() {
     if (ogImage)
       ogImage.setAttribute(
         "content",
-        `https://simplyvastushastra.com${post.coverImage}`,
+        extPost._isCms && extPost._ogImage
+          ? extPost._ogImage
+          : `https://simplyvastushastra.com${post.coverImage}`,
       );
 
     injectBlogPostJsonLd(post);
@@ -320,14 +339,21 @@ export default function BlogPostPage() {
         </motion.div>
 
         {/* Article Content */}
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="blog-article"
-        >
-          {post.content}
-        </motion.article>
+        {(post as ExtendedBlogPost)._isCms &&
+        (post as ExtendedBlogPost)._htmlContent ? (
+          <CmsBlogRenderer
+            htmlContent={(post as ExtendedBlogPost)._htmlContent!}
+          />
+        ) : (
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="blog-article"
+          >
+            {post.content}
+          </motion.article>
+        )}
 
         {/* Keywords (for SEO, visually as tags) */}
         <div
