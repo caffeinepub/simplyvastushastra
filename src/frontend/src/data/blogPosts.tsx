@@ -34,7 +34,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu for happy home",
       "charru gupta vastu",
     ],
-    coverImage: "/assets/generated/blog-top-10-vastu-tips.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-top-10-vastu-tips.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -151,8 +151,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu consultation from home",
       "charru gupta online vastu",
     ],
-    coverImage:
-      "/assets/generated/blog-online-vastu-consultation.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-online-vastu-consultation.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -246,8 +245,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "business vastu shastra",
       "vastu for success",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-business-growth.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-business-growth.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -351,8 +349,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu shastra expert india",
       "simplyvastushastra",
     ],
-    coverImage:
-      "/assets/generated/blog-best-vastu-expert-india.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-best-vastu-expert-india.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -458,7 +455,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "residential vastu",
       "commercial vastu india",
     ],
-    coverImage: "/assets/generated/blog-vastu-consultant-guide.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-guide.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -574,7 +571,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "master bedroom vastu",
       "vastu for couples",
     ],
-    coverImage: "/assets/generated/blog-vastu-for-bedroom.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-bedroom.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -682,8 +679,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "kubera vastu",
       "vastu for north entrance",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-north-facing-house.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-north-facing-house.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -796,8 +792,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "kubera vastu tips",
       "vastu for cash flow",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-money-and-wealth.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-money-and-wealth.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -909,8 +904,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu remedies at home",
       "vastu pyramid",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-remedies-without-demolition.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-remedies-without-demolition.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1031,8 +1025,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "bedroom vastu for couples",
       "vastu for new home",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-newly-married-couples.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-newly-married-couples.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1159,7 +1152,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "noida vastu consultant",
       "vastu consultation noida",
     ],
-    coverImage: "/assets/generated/blog-vastu-consultant-noida.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-noida.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1246,8 +1239,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "delhi ncr vastu shastra",
       "top vastu consultant delhi",
     ],
-    coverImage:
-      "/assets/generated/blog-best-vastu-consultant-delhi-ncr.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-best-vastu-consultant-delhi-ncr.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1323,8 +1315,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu consultant gurugram",
       "commercial vastu gurgaon",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-consultant-gurgaon.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-gurgaon.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1392,8 +1383,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu consultant vasundhara",
       "vastu ghaziabad",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-consultant-ghaziabad.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-ghaziabad.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1461,8 +1451,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu yamuna expressway",
       "vastu noida extension",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-consultant-greater-noida.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-greater-noida.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1527,7 +1516,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "business vastu delhi ncr",
       "vastu for corporate office",
     ],
-    coverImage: "/assets/generated/blog-office-vastu-delhi-ncr.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-office-vastu-delhi-ncr.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1595,7 +1584,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu shastra lucknow",
       "vastu expert up",
     ],
-    coverImage: "/assets/generated/blog-vastu-tips-lucknow-up.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-tips-lucknow-up.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1665,8 +1654,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu for manufacturing unit",
       "factory vastu tips",
     ],
-    coverImage:
-      "/assets/generated/blog-industrial-vastu-uttar-pradesh.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-industrial-vastu-uttar-pradesh.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1738,8 +1726,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu for 2bhk flat noida",
       "vastu consultation noida flat",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-flat-in-noida.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-flat-in-noida.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1805,8 +1792,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu for flat delhi",
       "vastu consultant delhi",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-new-home-delhi.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-new-home-delhi.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1882,8 +1868,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu to attract customers",
       "shop vastu delhi",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-shop-in-delhi-ncr.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-shop-in-delhi-ncr.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -1957,8 +1942,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu consultation video call",
       "best online vastu consultant",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-consultation-online-india.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultation-online-india.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -2027,8 +2011,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "south direction vastu",
       "vastu for south facing house delhi",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-south-facing-house-noida.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-south-facing-house-noida.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -2096,7 +2079,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu upay for marriage",
     ],
     coverImage:
-      "/assets/generated/blog-vastu-remedies-for-delayed-marriage.dim_800x480.jpg",
+      "/assets/generated/blog-vastu-remedies-for-delayed-marriage.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -2175,8 +2158,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu consultation dwarka sector",
       "best vastu consultant dwarka",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-consultant-dwarka-delhi.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-dwarka-delhi.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -2278,7 +2260,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu consultant dwarka rohini pitampura",
     ],
     coverImage:
-      "/assets/generated/blog-vastu-consultant-rohini-pitampura-delhi.dim_800x480.jpg",
+      "/assets/generated/blog-vastu-consultant-rohini-pitampura-delhi.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -2346,8 +2328,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "industrial vastu faridabad",
       "residential vastu faridabad",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-consultant-faridabad.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-consultant-faridabad.jpg",
     content: (
       <div className="blog-content">
         <p>
@@ -2418,8 +2399,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "vastu for land purchase",
       "plot vastu check delhi",
     ],
-    coverImage:
-      "/assets/generated/blog-vastu-for-plot-purchase-delhi-ncr.dim_800x480.jpg",
+    coverImage: "/assets/generated/blog-vastu-for-plot-purchase-delhi-ncr.jpg",
     content: (
       <div className="blog-content">
         <p>

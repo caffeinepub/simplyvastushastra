@@ -186,7 +186,7 @@ export default function BlogPostPage() {
           className="w-full h-full object-cover"
           onError={(e) => {
             (e.target as HTMLImageElement).src =
-              "/assets/generated/blog-vastu-tips.dim_800x480.jpg";
+              "/assets/generated/blog-fallback.jpg";
           }}
         />
         <div
